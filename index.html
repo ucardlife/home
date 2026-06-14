@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="俄优卡 U Card — 为在俄中国留学生与华人打造的本地生活折扣权益卡，莫斯科 40+ 优质商家专属 VIP 折扣。">
+<title data-i18n="html.title">俄优卡 U Card — U卡在手，莫城我有</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+
+:root {
+    /* ===== Brand palette (Russian-flag inspired, kept from source) ===== */
+    --cobalt: #0039A6; --cobalt-dark: #00205B; --cobalt-deep:#001640; --cobalt-light: #E3ECF8;
+    --gold: #C9A84C; --gold-light: #EBDCA6; --gold-dark: #9C7E2C;
+    --red: #D52B1E; --red-hover: #B11A10;
+    --white: #FFFFFF; --bg: #F5F7FB; --bg-soft:#EDF1F8;
+    --text: #14182B; --text-secondary: #535D74; --text-light: #98A0B4;
+    --border: #E5EAF2;
+    /* Layered depth shadows */
+    --shadow-xs: 0 1px 2px rgba(16,24,48,.05);
+    --shadow-sm: 0 2px 10px rgba(16,24,48,.06);
+    --shadow-md: 0 10px 34px rgba(0,40,120,.10);
+    --shadow-lg: 0 22px 60px rgba(0,40,120,.16);
+    --shadow-xl: 0 40px 90px rgba(0,32,91,.24);
+    --ring: 0 0 0 4px rgba(0,57,166,.12);
+    --radius-sm: 10px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 30px;
+    --font-cn: 'Noto Sans SC','PingFang SC','Microsoft YaHei',sans-serif;
+    --font-ru: 'Inter','Noto Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-en: 'Inter',-apple-system,system-ui,sans-serif;
+    --font-num: 'Inter Tight','Inter',system-ui,sans-serif;
+    --max-w: 1200px; --nav-h: 70px;
+    --ease: .35s cubic-bezier(.4,0,.2,1);
+    --ease-out: .5s cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-cn);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;padding-top:var(--nav-h);overflow-x:hidden}
+body.lang-ru{font-family:var(--font-ru)}
+body.lang-en{font-family:var(--font-en)}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none;color:inherit}
+input,select{font-family:inherit;outline:none}
+img{max-width:100%;display:block}
+ul{list-style:none}
+::selection{background:rgba(0,57,166,.14)}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:4px}
+
+/* ===== Page-load entrance ===== */
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+body{animation:pageIn .6s ease both}
+
+/* ===== NAVBAR (glass) ===== */
+.navbar{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid rgba(229,234,242,.8);z-index:1000;display:flex;align-items:center;justify-content:center;transition:var(--ease)}
+.navbar-inner{width:100%;max-width:var(--max-w);padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo img{height:42px;width:auto;transition:var(--ease)}
+.logo:hover img{transform:scale(1.05) rotate(-2deg)}
+.logo-text{font-weight:900;font-size:21px;background:linear-gradient(135deg,var(--cobalt),var(--red));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.5px}
+.logo-en{font-family:var(--font-en);font-weight:600;font-size:11px;color:var(--gold-dark);letter-spacing:3px;display:block;margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{position:relative;padding:8px 16px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;color:var(--text-secondary);transition:var(--ease)}
+.nav-links a:not(.btn-primary-nav)::after{content:'';position:absolute;left:16px;right:16px;bottom:4px;height:2px;border-radius:2px;background:var(--cobalt);transform:scaleX(0);transform-origin:center;transition:var(--ease)}
+.nav-links a:hover{color:var(--cobalt)}
+.nav-links a.active{color:var(--cobalt)}
+.nav-links a.active::after,.nav-links a:hover:not(.btn-primary-nav)::after{transform:scaleX(1)}
+.nav-links .btn-primary-nav{background:linear-gradient(135deg,var(--red),#EC4435);color:var(--white)!important;padding:9px 22px;border-radius:var(--radius-sm);font-weight:700;margin-left:10px;box-shadow:0 6px 18px rgba(213,43,30,.28);transition:var(--ease)}
+.nav-links .btn-primary-nav::after{display:none}
+.nav-links .btn-primary-nav:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 26px rgba(213,43,30,.4)}
+
+/* Language Selector */
+.lang-selector{position:relative;margin-left:12px}
+.lang-btn{display:flex;align-items:center;gap:6px;padding:7px 13px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:var(--text-secondary);border:1px solid var(--border);transition:var(--ease);background:var(--white)}
+.lang-btn:hover{border-color:var(--cobalt);color:var(--cobalt);box-shadow:var(--shadow-xs)}
+.lang-btn svg{width:18px;height:18px}
+.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-lg);min-width:140px;overflow:hidden;display:none;z-index:100;transform-origin:top right;animation:ddIn .22s ease}
+@keyframes ddIn{from{opacity:0;transform:translateY(-6px) scale(.96)}to{opacity:1;transform:none}}
+.lang-dropdown.open{display:block}
+.lang-dropdown button{display:flex;align-items:center;gap:8px;width:100%;padding:11px 16px;font-size:13px;font-weight:600;color:var(--text);text-align:left;transition:var(--ease)}
+.lang-dropdown button:hover{background:var(--cobalt-light);color:var(--cobalt)}
+.lang-dropdown button.active{background:var(--cobalt);color:var(--white)}
+.lang-dropdown button .flag{font-size:16px}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:6px;cursor:pointer}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--text);border-radius:2px;transition:var(--ease)}
+
+/* ===== PAGES ===== */
+.page{display:none}
+.page.active{display:block;animation:pageSlide .5s cubic-bezier(.16,1,.3,1)}
+@keyframes pageSlide{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.section{padding:88px 24px;position:relative}
+.section-tag{display:inline-block;background:linear-gradient(135deg,var(--gold-light),#F3E9C8);color:var(--gold-dark);padding:5px 18px;border-radius:30px;font-size:11px;font-weight:800;letter-spacing:2px;font-family:var(--font-en);margin-bottom:14px;box-shadow:inset 0 0 0 1px rgba(156,126,44,.18)}
+.section-title{text-align:center;font-size:38px;font-weight:900;color:var(--cobalt-dark);margin-bottom:12px;letter-spacing:-1px;line-height:1.15}
+.section-title .gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section-subtitle{text-align:center;font-size:16px;color:var(--text-secondary);max-width:620px;margin:0 auto 52px;line-height:1.7}
+.container{max-width:var(--max-w);margin:0 auto}
+.hidden{display:none!important}
+.gold-text{color:var(--gold-dark)}
+
+/* ===== Scroll reveal ===== */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.visible > *{animation:staggerUp .7s cubic-bezier(.16,1,.3,1) both}
+.reveal.visible > *:nth-child(2){animation-delay:.06s}
+.reveal.visible > *:nth-child(3){animation-delay:.12s}
+.reveal.visible > *:nth-child(4){animation-delay:.18s}
+.reveal.visible > *:nth-child(5){animation-delay:.24s}
+.reveal.visible > *:nth-child(6){animation-delay:.3s}
+@keyframes staggerUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:var(--radius-sm);font-weight:700;font-size:15px;transition:var(--ease);position:relative;overflow:hidden;will-change:transform}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.35),transparent 70%);transform:translateX(-120%);transition:transform .6s ease}
+.btn:hover::before{transform:translateX(120%)}
+.btn-red{background:linear-gradient(135deg,var(--red),#EC4435);color:var(--white);box-shadow:0 8px 22px rgba(213,43,30,.28)}
+.btn-red:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 34px rgba(213,43,30,.42)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);box-shadow:0 8px 22px rgba(201,168,76,.3)}
+.btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 34px rgba(201,168,76,.45)}
+.btn-outline{background:var(--white);color:var(--cobalt);box-shadow:inset 0 0 0 2px var(--cobalt)}
+.btn-outline:hover{background:var(--cobalt);color:var(--white);transform:translateY(-3px) scale(1.02);box-shadow:0 14px 34px rgba(0,57,166,.3)}
+.btn-white-outline{background:rgba(255,255,255,.06);color:var(--white);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4);backdrop-filter:blur(4px)}
+.btn-white-outline:hover{background:rgba(255,255,255,.16);transform:translateY(-3px) scale(1.02)}
+
+/* ===== HERO ===== */
+.hero{background:linear-gradient(125deg,#06183F 0%,#0A2E6E 28%,#0039A6 50%,#15275E 74%,#1C0B3C 100%);background-size:200% 200%;animation:bgShift 20s ease infinite;color:var(--white);padding:72px 24px 0;position:relative;overflow:hidden}
+@keyframes bgShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 18%,rgba(201,168,76,.20),transparent 60%),radial-gradient(50% 45% at 8% 85%,rgba(213,43,30,.16),transparent 60%);pointer-events:none;animation:auroraFloat 14s ease-in-out infinite alternate}
+@keyframes auroraFloat{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-3%,2%,0) scale(1.08)}}
+.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(to bottom,black,transparent 75%);-webkit-mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none;opacity:.5}
+.hero-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:1}
+.hero-left{padding:48px 0 72px}
+.hero-left>*{animation:heroUp .8s cubic-bezier(.16,1,.3,1) both}
+.hero-left>*:nth-child(2){animation-delay:.1s}.hero-left>*:nth-child(3){animation-delay:.18s}.hero-left>*:nth-child(4){animation-delay:.26s}.hero-left>*:nth-child(5){animation-delay:.34s}
+@keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.14);border:1px solid rgba(201,168,76,.32);padding:7px 18px;border-radius:30px;font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:26px;color:var(--gold-light);backdrop-filter:blur(6px)}
+.hero h1{font-size:clamp(38px,5vw,58px);font-weight:900;line-height:1.06;margin-bottom:10px;letter-spacing:-1.5px}
+.hero h1 .gold{background:linear-gradient(135deg,#F1DE9E,var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .slogan{font-size:22px;font-weight:600;opacity:.92;margin-bottom:18px;font-family:var(--font-en);letter-spacing:2px;color:var(--gold-light)}
+.hero .desc{font-size:16px;line-height:1.85;opacity:.82;max-width:520px;margin-bottom:34px}
+.hero .desc strong{color:var(--gold-light);font-weight:700}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-right{display:flex;justify-content:center;align-items:center;padding-bottom:60px;animation:heroUp 1s cubic-bezier(.16,1,.3,1) .2s both}
+.hero-card-stack{position:relative;width:400px;height:380px;display:flex;align-items:center;justify-content:center;cursor:pointer}.hero-card-stack::before{content:'';position:absolute;width:440px;height:440px;background:radial-gradient(circle,rgba(201,168,76,.34),transparent 60%);filter:blur(20px);animation:glowPulse 5s ease-in-out infinite}.hero-card-rear{position:absolute;width:310px;border-radius:16px;box-shadow:0 22px 60px rgba(0,0,0,.42);transform:perspective(1100px) rotateY(-15deg) rotateZ(-8deg) translate(52px,-34px) scale(.9);transition:var(--ease-out);z-index:1;opacity:.97}.hero-card-vertical-front{position:relative;height:340px;width:auto;border-radius:18px;box-shadow:0 32px 74px rgba(0,0,0,.46);transform:perspective(1100px) rotateY(9deg) rotateZ(2deg);transition:var(--ease-out);z-index:3;animation:cardFloat 6s ease-in-out infinite}.hero-card-stack:hover .hero-card-vertical-front{transform:perspective(1100px) rotateY(2deg) rotateZ(0) scale(1.08);box-shadow:0 44px 96px rgba(0,0,0,.52);animation-play-state:paused}.hero-card-stack:hover .hero-card-rear{transform:perspective(1100px) rotateY(-11deg) rotateZ(-10deg) translate(78px,-50px) scale(.98)}.hero-card-fallback{width:250px;height:350px;border-radius:18px;background:linear-gradient(160deg,#0A2E6E,#0039A6 55%,#D52B1E);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;letter-spacing:1px;box-shadow:0 32px 74px rgba(0,0,0,.46);z-index:3;position:relative;text-align:center;padding:20px}
+
+/* ===== TEAM ===== */
+.team-dept-title{font-size:22px;font-weight:800;color:var(--cobalt-dark);margin-bottom:26px;padding-bottom:10px;position:relative}
+.team-dept-title::after{content:'';position:absolute;left:0;bottom:0;width:56px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-dark))}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.team-card{background:var(--white);border-radius:var(--radius-md);padding:32px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:center;transition:var(--ease-out);position:relative;overflow:hidden}
+.team-card::before{content:'';position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--cobalt),var(--gold),var(--red));opacity:0;transition:var(--ease)}
+.team-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.team-card:hover::before{opacity:1}
+.team-avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--cobalt),var(--gold));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:800;font-size:30px;margin:0 auto 16px;box-shadow:0 8px 20px rgba(0,57,166,.22);font-family:var(--font-en)}
+.team-card .t-name{font-size:18px;font-weight:800;margin-bottom:3px}
+.team-card .t-role{font-size:13px;color:var(--gold-dark);font-weight:700;margin-bottom:12px}
+.team-card .t-bio{font-size:13px;color:var(--text-secondary);line-height:1.7}
+.team-card .t-badge{display:inline-block;padding:3px 13px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:12px;letter-spacing:.5px}
+.team-card .t-badge.brand{background:var(--cobalt-light);color:var(--cobalt)}
+.team-card .t-badge.market{background:#FFF1E2;color:#C2410C}
+
+/* ===== TRACKER ===== */
+.savings-tracker{background:var(--white);border-bottom:1px solid var(--border);padding:56px 24px}
+.tracker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:var(--max-w);margin:0 auto;text-align:center}
+.tracker-item{position:relative}
+.tracker-item:not(:last-child)::after{content:'';position:absolute;right:-16px;top:10%;height:80%;width:1px;background:var(--border)}
+.tracker-item .tracker-num{font-family:var(--font-num);font-size:clamp(34px,4vw,48px);font-weight:800;background:linear-gradient(135deg,var(--cobalt),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1;letter-spacing:-1px}
+.tracker-item .tracker-label{font-size:15px;color:var(--text);font-weight:600;margin-top:6px}
+.tracker-item .tracker-sub{font-size:12.5px;color:var(--text-light);margin-top:2px}
+
+/* ===== BENEFITS ===== */
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.benefit-card{background:var(--white);border-radius:var(--radius-md);padding:36px 26px;box-shadow:var(--shadow-sm);transition:var(--ease-out);text-align:center;border:1px solid var(--border);position:relative;overflow:hidden}
+.benefit-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cobalt),var(--gold));transform:scaleX(0);transform-origin:left;transition:var(--ease-out)}
+.benefit-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.benefit-card:hover::after{transform:scaleX(1)}
+.benefit-icon{width:66px;height:66px;border-radius:20px;background:linear-gradient(135deg,var(--cobalt-light),#F1F5FC);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:30px;transition:var(--ease)}
+.benefit-card:hover .benefit-icon{transform:scale(1.1) rotate(-4deg)}
+.benefit-card h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.benefit-card p{font-size:14px;color:var(--text-secondary);line-height:1.65}
+.benefit-card .tag{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);padding:3px 15px;border-radius:20px;font-size:12px;font-weight:800;margin-top:14px;letter-spacing:.5px}
+
+/* ===== MAP ===== */
+.map-section{background:var(--white)}
+.map-container{max-width:920px;margin:0 auto;background:linear-gradient(180deg,#EAF1FA,#D7E5F4 55%,#C9DAEE);border-radius:var(--radius-lg);padding:36px;position:relative;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-md);min-height:440px}
+.map-container::before{content:'\041C\041E\0421\041A\0412\0410 \00B7 MOSCOW';position:absolute;bottom:18px;right:26px;font-family:var(--font-num);font-size:48px;font-weight:900;color:rgba(0,57,166,.07);letter-spacing:5px;pointer-events:none}
+.map-ring{position:absolute;border:1px solid rgba(0,57,166,.10);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.map-ring.r1{width:300px;height:300px}
+.map-ring.r2{width:500px;height:500px;animation:ringPulse 6s ease-in-out infinite}
+@keyframes ringPulse{0%,100%{opacity:.6}50%{opacity:1}}
+.map-pin{position:absolute;display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-100%);transition:var(--ease);z-index:2;cursor:pointer}
+.map-pin:hover{z-index:10}
+.map-pin .pin-dot{width:18px;height:18px;border-radius:50%;background:var(--red);border:3px solid var(--white);box-shadow:0 2px 10px rgba(213,43,30,.45);transition:var(--ease)}
+.map-pin .pin-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(213,43,30,.4);animation:pinPing 2s ease-out infinite}
+@keyframes pinPing{0%{transform:scale(.6);opacity:.9}100%{transform:scale(1.8);opacity:0}}
+.map-pin:hover .pin-dot{transform:scale(1.3)}
+.map-pin .pin-label{background:var(--white);padding:5px 13px;border-radius:10px;font-size:12px;font-weight:700;color:var(--cobalt);box-shadow:var(--shadow-sm);margin-bottom:8px;white-space:nowrap;border:1px solid var(--border)}
+.map-pin .pin-tag{font-size:10px;color:var(--red);font-weight:700;margin-top:2px}
+.map-pin.pin-silkroad{top:38%;left:42%}
+.map-pin.pin-jiayan{top:45%;left:58%}
+.map-pin.pin-bamboo{top:52%;left:35%}
+.map-pin.pin-default{opacity:.5}
+.map-pin.pin-default .pin-dot{background:var(--cobalt);width:12px;height:12px}
+.map-pin.pin-default .pin-dot::after{display:none}
+.map-legend{display:flex;gap:24px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.map-legend-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-secondary)}
+.map-legend-item .dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--white);box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.map-legend-item .dot.red{background:var(--red)}
+.map-legend-item .dot.blue{background:var(--cobalt)}
+
+/* ===== MERCHANT COLLECTION ===== */
+.merchant-collection{padding:88px 24px;background:var(--bg)}
+.mcat-filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:0 auto 44px;max-width:var(--max-w);align-items:center}
+.mcat-btn{padding:9px 20px;border-radius:30px;font-size:13px;font-weight:600;color:var(--text-secondary);background:var(--white);border:1px solid var(--border);transition:var(--ease)}
+.mcat-btn:hover{color:var(--cobalt);border-color:var(--cobalt);transform:translateY(-2px)}
+.mcat-btn.active{background:linear-gradient(135deg,var(--cobalt),#1351C8);color:var(--white);border-color:transparent;box-shadow:0 6px 16px rgba(0,57,166,.28)}
+.mcat-search{flex:1;min-width:200px;max-width:300px;padding:9px 16px;border:1px solid var(--border);border-radius:30px;font-size:13px;background:var(--white);transition:var(--ease)}
+.mcat-search:focus{border-color:var(--cobalt);box-shadow:var(--ring)}
+.mcat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:24px;max-width:var(--max-w);margin:0 auto}
+.mcat-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-sm);border:1px solid var(--border);transition:var(--ease-out);display:flex;flex-direction:column;position:relative;transform-style:preserve-3d}
+.mcat-card::after{content:'';position:absolute;inset:0;border-radius:var(--radius-md);box-shadow:inset 0 0 0 1.5px rgba(0,57,166,0);transition:var(--ease);pointer-events:none}
+.mcat-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.mcat-card:hover::after{box-shadow:inset 0 0 0 1.5px rgba(0,57,166,.25)}
+.mcat-card .vip-tag{position:absolute;top:12px;left:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);padding:4px 12px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:1px;z-index:2;box-shadow:0 3px 10px rgba(201,168,76,.4);font-family:var(--font-en)}
+.mcat-card .discount-hero{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,var(--red),#EC4435);color:var(--white);width:54px;height:54px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;box-shadow:0 6px 16px rgba(213,43,30,.4)}
+.mcat-card .discount-hero .d-pct{font-size:17px;font-weight:900;line-height:1;font-family:var(--font-num)}
+.mcat-card .discount-hero .d-off{font-size:8px;font-weight:600;opacity:.9}
+.mcat-card .mcat-img-wrap{height:158px;background:var(--cobalt-light);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.mcat-card .mcat-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.mcat-card:hover .mcat-img-wrap img{transform:scale(1.08)}
+.mcat-card .mcat-img-wrap .fallback{font-size:36px;font-weight:800;color:var(--cobalt);position:absolute;font-family:var(--font-cn)}
+.mcat-card .mcat-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.mcat-card .mcat-body .mcat-name{font-size:16px;font-weight:800}
+.mcat-card .mcat-body .mcat-name-ru{font-size:12px;color:var(--text-light);font-family:var(--font-en);margin-bottom:4px}
+.mcat-card .mcat-body .mcat-desc{font-size:13px;color:var(--text-secondary);line-height:1.55;margin:6px 0 10px;flex:1}
+.mcat-card .mcat-body .mcat-meta{display:flex;gap:16px;font-size:11px;font-weight:600;color:var(--cobalt);background:var(--cobalt-light);padding:3px 10px;border-radius:8px;width:max-content;margin-top:auto}
+
+/* ===== CASE STUDIES ===== */
+.case-studies{background:var(--white)}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.case-card{background:linear-gradient(180deg,var(--bg),var(--white));border-radius:var(--radius-md);padding:30px 26px;border:1px solid var(--border);transition:var(--ease-out);position:relative;overflow:hidden}
+.case-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.case-card .quote-icon{font-size:48px;color:var(--gold);opacity:.25;line-height:.6;font-family:Georgia,serif}
+.case-card .case-text{font-size:14px;color:var(--text-secondary);line-height:1.75;margin:8px 0 18px}
+.case-card .case-author{display:flex;align-items:center;gap:12px}
+.case-card .case-author .avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--cobalt),var(--gold));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:16px}
+.case-card .case-author .info .name{font-size:14px;font-weight:700}
+.case-card .case-author .info .school{font-size:12px;color:var(--text-light)}
+.case-card .case-saved{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);padding:4px 14px;border-radius:20px;font-size:13px;font-weight:800;font-family:var(--font-num)}
+
+/* ===== FAQ ===== */
+.faq-section{background:var(--bg)}
+.faq-list{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:var(--white);transition:var(--ease)}
+.faq-item.open{box-shadow:var(--shadow-md);border-color:rgba(0,57,166,.2)}
+.faq-q{width:100%;padding:19px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:15px;font-weight:700;color:var(--text);text-align:left;transition:var(--ease)}
+.faq-q:hover{color:var(--cobalt)}
+.faq-q .faq-icon{font-size:20px;color:var(--cobalt);transition:var(--ease);flex-shrink:0;font-weight:400}
+.faq-item.open .faq-q .faq-icon{transform:rotate(45deg)}
+.faq-a{padding:0 24px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;font-size:14px;color:var(--text-secondary);line-height:1.75}
+.faq-item.open .faq-a{max-height:340px;padding:0 24px 20px}
+
+/* ===== PRICING ===== */
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;max-width:720px;margin:0 auto}
+.pricing-card{background:var(--white);border-radius:var(--radius-lg);padding:44px 34px;box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:center;transition:var(--ease-out);position:relative}
+.pricing-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.pricing-card.featured{border-color:transparent;box-shadow:0 14px 44px rgba(201,168,76,.2);background:linear-gradient(180deg,#FFFDF7,var(--white))}
+.pricing-card.featured::after{content:'';position:absolute;inset:0;border-radius:var(--radius-lg);padding:1.5px;background:linear-gradient(135deg,var(--gold),var(--cobalt));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.pricing-card.featured::before{content:'\2605 'attr(data-recommend);position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);padding:5px 22px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:1px;box-shadow:0 6px 16px rgba(201,168,76,.4)}
+.pricing-card .price{font-family:var(--font-num);font-size:56px;font-weight:900;color:var(--cobalt-dark);line-height:1}
+.pricing-card .price .unit{font-size:24px;font-weight:700;vertical-align:super}
+.pricing-card .price-label{font-size:15px;color:var(--text-secondary);margin:8px 0 22px;font-weight:600}
+.pricing-card .features{text-align:left;margin:22px 0 30px}
+.pricing-card .features li{padding:8px 0;font-size:14px;color:var(--text-secondary);display:flex;align-items:flex-start;gap:10px}
+.pricing-card .features li::before{content:'\2713';color:var(--white);background:linear-gradient(135deg,var(--gold),var(--gold-dark));width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
+.pricing-card .btn{width:100%}
+
+/* ===== RECRUIT ===== */
+.partner-recruit{background:linear-gradient(135deg,var(--cobalt-deep),var(--cobalt-dark) 60%,#16448F);color:var(--white);padding:88px 24px;position:relative;overflow:hidden}
+.partner-recruit::before{content:'';position:absolute;inset:0;background:radial-gradient(50% 60% at 85% 20%,rgba(201,168,76,.18),transparent 60%);pointer-events:none}
+.recruit-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;position:relative;z-index:1}
+.recruit-left h2{font-size:36px;font-weight:900;margin-bottom:14px;letter-spacing:-.5px}
+.recruit-left p{font-size:15px;opacity:.82;line-height:1.8;margin-bottom:26px}
+.recruit-features{display:flex;flex-direction:column;gap:14px;margin-bottom:30px}
+.recruit-features li{display:flex;align-items:center;gap:12px;font-size:14.5px;opacity:.9}
+.recruit-features li::before{content:'\2713';color:var(--cobalt-dark);background:var(--gold-light);width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.recruit-right{display:grid;gap:20px}
+.recruit-card{background:rgba(255,255,255,.07);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-md);padding:26px;transition:var(--ease-out)}
+.recruit-card:hover{background:rgba(255,255,255,.13);transform:translateY(-4px)}
+.recruit-card h3{font-size:17px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.recruit-card p{font-size:13px;opacity:.78;line-height:1.7}
+.recruit-card .tag{display:inline-block;background:rgba(201,168,76,.22);color:var(--gold-light);padding:3px 13px;border-radius:20px;font-size:11px;font-weight:700;margin-top:10px}
+
+/* ===== LOGIN ===== */
+.login-page{min-height:calc(100vh - var(--nav-h) - 60px);display:flex;align-items:center;justify-content:center;padding:48px 24px;background:radial-gradient(60% 60% at 50% 0%,var(--cobalt-light),var(--bg))}
+.login-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-xl);padding:48px 40px;max-width:448px;width:100%;border:1px solid var(--border)}
+.login-card h2{font-size:26px;font-weight:900;text-align:center;color:var(--cobalt-dark)}
+.login-card .login-sub{text-align:center;color:var(--text-secondary);font-size:14px;margin-bottom:28px}
+.login-tabs{display:flex;margin-bottom:24px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border);background:var(--bg)}
+.login-tab{flex:1;padding:12px;font-size:14px;font-weight:700;color:var(--text-secondary);transition:var(--ease);text-align:center}
+.login-tab.active{background:linear-gradient(135deg,var(--cobalt),#1351C8);color:var(--white)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:7px}
+.form-group input{width:100%;padding:13px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;transition:var(--ease);background:var(--bg)}
+.form-group input:focus{border-color:var(--cobalt);box-shadow:var(--ring);background:var(--white)}
+.login-card .btn{width:100%;padding:14px}
+.login-footer{text-align:center;margin-top:22px;font-size:14px;color:var(--text-secondary)}
+.login-footer a{color:var(--cobalt);font-weight:700}
+.login-error{background:#FFF0EF;color:var(--red);padding:11px 16px;border-radius:var(--radius-sm);font-size:14px;margin-bottom:16px;display:none}
+.login-error.show{display:block;animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ===== MEMBER ===== */
+.member-page{padding:48px 24px 64px}
+.member-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:34px}
+.member-header .greeting h2{font-size:27px;font-weight:900;color:var(--cobalt-dark)}
+.member-header .greeting p{font-size:14px;color:var(--text-secondary)}
+.btn-logout{padding:9px 20px;border-radius:var(--radius-sm);border:1px solid var(--border);color:var(--text-secondary);font-size:14px;font-weight:600;transition:var(--ease)}
+.btn-logout:hover{border-color:var(--red);color:var(--red)}
+.digital-card-wrap{max-width:540px;margin-bottom:34px}
+.digital-card{background:linear-gradient(140deg,var(--cobalt-deep),var(--cobalt) 55%,#1A56A8);border-radius:var(--radius-lg);padding:34px 30px;color:var(--white);box-shadow:var(--shadow-xl);position:relative;overflow:hidden}
+.digital-card::before{content:'U CARD';position:absolute;top:-18px;right:-8px;font-size:78px;font-weight:900;opacity:.07;font-family:var(--font-num);letter-spacing:4px}
+.digital-card::after{content:'';position:absolute;inset:0;background:radial-gradient(40% 60% at 90% 10%,rgba(201,168,76,.25),transparent 60%);pointer-events:none}
+.digital-card .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px;position:relative;z-index:1}
+.digital-card .card-brand{font-size:21px;font-weight:800;letter-spacing:1px}
+.digital-card .card-type{background:rgba(201,168,76,.24);color:var(--gold-light);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:700}
+.digital-card .card-number{font-family:var(--font-num);font-size:23px;letter-spacing:4px;margin-bottom:18px;opacity:.92;position:relative;z-index:1}
+.digital-card .card-holder{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.digital-card .card-holder .field{font-size:11px;opacity:.55;margin-bottom:2px}
+.digital-card .card-holder .value{font-size:15px;font-weight:700}
+.digital-card .card-qr{position:absolute;bottom:24px;right:24px;width:54px;height:54px;background:var(--white);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--text-light);z-index:1}
+.member-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:34px}
+.ms-card{background:var(--white);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:center;transition:var(--ease)}
+.ms-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.ms-card .ms-num{font-family:var(--font-num);font-size:34px;font-weight:800;background:linear-gradient(135deg,var(--cobalt),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ms-card .ms-label{font-size:14px;color:var(--text-secondary);margin-top:4px}
+.usage-section h3{font-size:18px;font-weight:800;margin-bottom:16px}
+.usage-list{background:var(--white);border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden}
+.usage-item{padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);font-size:14px}
+.usage-item:last-child{border-bottom:none}
+.usage-item .shop{font-weight:600}
+.usage-item .saved{color:var(--red);font-weight:800;font-family:var(--font-num)}
+.usage-item .date{color:var(--text-light);font-size:12px}
+.referral-box{background:linear-gradient(135deg,var(--cobalt-light),#F1F5FC);border-radius:var(--radius-md);border:1px solid var(--border);padding:26px;margin-top:24px}
+.referral-box h3{font-size:18px;font-weight:800;margin-bottom:12px}
+.ref-link{display:flex;gap:8px;align-items:center}
+.ref-link input{flex:1;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:13px;background:var(--white);color:var(--text-secondary)}
+.ref-link button{padding:11px 20px;background:linear-gradient(135deg,var(--cobalt),#1351C8);color:var(--white);border-radius:var(--radius-sm);font-weight:700;font-size:14px;white-space:nowrap;transition:var(--ease)}
+.ref-link button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,57,166,.3)}
+
+/* ===== ADMIN ===== */
+.admin-page{padding:48px 24px 64px}
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.admin-header h2{font-size:27px;font-weight:900;color:var(--cobalt-dark)}
+.admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:34px}
+.admin-stat-card{background:var(--white);border-radius:var(--radius-md);padding:26px;box-shadow:var(--shadow-sm);border:1px solid var(--border);transition:var(--ease)}
+.admin-stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.admin-stat-card .asc-label{font-size:14px;color:var(--text-secondary);margin-bottom:4px}
+.admin-stat-card .asc-num{font-family:var(--font-num);font-size:38px;font-weight:800;color:var(--cobalt-dark)}
+.admin-stat-card .asc-change{font-size:13px;color:#1A9E73;margin-top:4px;font-weight:600}
+.chart-section{background:var(--white);border-radius:var(--radius-md);border:1px solid var(--border);padding:26px;margin-bottom:34px}
+.chart-section h3{font-size:16px;font-weight:800;margin-bottom:22px}
+.bar-chart{display:flex;align-items:flex-end;gap:12px;height:180px;padding:0 8px}
+.bar-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar-item .bar{width:100%;max-width:42px;background:linear-gradient(180deg,var(--cobalt),var(--gold));border-radius:6px 6px 0 0;min-height:4px;transition:var(--ease-out)}
+.bar-item .bar:hover{filter:brightness(1.1)}
+.bar-item .bar-label{font-size:11px;color:var(--text-light)}
+.bar-item .bar-value{font-size:11px;font-weight:700;color:var(--text-secondary);font-family:var(--font-num)}
+.admin-search{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.admin-search input,.admin-search select{padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:14px;background:var(--white)}
+.admin-search input{flex:1;min-width:180px}
+.admin-search input:focus{border-color:var(--cobalt);box-shadow:var(--ring)}
+.admin-table-wrap{background:var(--white);border-radius:var(--radius-md);border:1px solid var(--border);overflow-x:auto}
+.admin-table{width:100%;border-collapse:collapse;font-size:14px}
+.admin-table th{background:var(--bg);padding:13px 16px;text-align:left;font-weight:700;color:var(--text-secondary);border-bottom:1px solid var(--border);white-space:nowrap}
+.admin-table td{padding:13px 16px;border-bottom:1px solid var(--border);color:var(--text)}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:var(--cobalt-light)}
+.status-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:700}
+.status-badge.active{background:#E6F6EF;color:#1A9E73}
+.status-badge.expired{background:#FFF0EF;color:var(--red)}
+
+/* ===== FOOTER ===== */
+.footer{background:linear-gradient(180deg,var(--cobalt-dark),var(--cobalt-deep));color:rgba(255,255,255,.66);padding:56px 24px;text-align:center}
+.footer .f-brand{font-size:24px;font-weight:900;color:var(--white);margin-bottom:6px}
+.footer .f-brand span{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.footer p{font-size:14px;line-height:1.85;max-width:620px;margin:0 auto}
+.footer .f-links{display:flex;justify-content:center;gap:26px;margin-top:22px;flex-wrap:wrap}
+.footer .f-links a{color:rgba(255,255,255,.55);font-size:13px;font-weight:500;transition:var(--ease)}
+.footer .f-links a:hover{color:var(--gold-light)}
+
+/* ===== TOAST ===== */
+.toast{position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--cobalt-dark);color:var(--white);padding:14px 28px;border-radius:var(--radius-sm);font-size:14px;font-weight:600;opacity:0;transition:all .45s cubic-bezier(.16,1,.3,1);z-index:2000;pointer-events:none;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== RESPONSIVE (mobile-first refinements) ===== */
+@media(max-width:1024px){
+    .hero-inner{grid-template-columns:1fr;text-align:center}
+    .hero-left{padding:32px 0 48px}
+    .hero .desc{margin:0 auto 32px}
+    .hero-actions{justify-content:center}
+    .hero-card-vertical-front{height:280px;transform:none;animation:none}
+    .hero-card-stack{width:320px;height:320px;margin:0 auto}
+    .hero-card-rear{transform:perspective(1000px) rotateZ(-8deg) translate(40px,-24px) scale(.86)}
+    .hero-right{padding-bottom:48px}
+    .benefits-grid,.cases-grid{grid-template-columns:repeat(2,1fr)}
+    .recruit-inner{grid-template-columns:1fr;gap:36px}
+    .tracker-item:not(:last-child)::after{display:none}
+}
+@media(max-width:768px){
+    .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(18px);flex-direction:column;padding:16px 24px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-md);transform:translateY(-130%);opacity:0;transition:var(--ease);pointer-events:none;z-index:99}
+    .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+    .nav-links a{width:100%;padding:13px 16px;font-size:15px}
+    .nav-links a:not(.btn-primary-nav)::after{display:none}
+    .nav-links .btn-primary-nav{margin-left:0;text-align:center}
+    .lang-selector{margin-left:0;margin-top:8px}
+    .lang-dropdown{right:auto;left:0}
+    .hamburger{display:flex}
+    .section{padding:60px 20px}
+    .section-title{font-size:28px}
+    .hero h1{font-size:34px}
+    .hero .slogan{font-size:18px}
+    .tracker-grid{gap:18px}
+    .benefits-grid,.cases-grid,.team-grid{grid-template-columns:1fr}
+    .pricing-grid,.mcat-grid{grid-template-columns:1fr}
+    .member-stats,.admin-stats{grid-template-columns:1fr}
+    .admin-search{flex-direction:column}
+    .admin-search input{width:100%}
+    .recruit-left h2{font-size:28px}
+    .map-container{min-height:340px;padding:22px}
+    .login-card{padding:36px 26px}
+    .ref-link{flex-direction:column}
+    .ref-link button{width:100%}
+}
+@media(max-width:480px){
+    .hero{padding:48px 16px 0}
+    .hero h1{font-size:29px}
+    .section{padding:48px 16px}
+    .tracker-grid{grid-template-columns:1fr;gap:24px}
+    .map-container{min-height:300px;padding:16px}
+    .map-pin .pin-label{font-size:10px;padding:3px 9px}
+}
+
+/* ===== Accessibility: reduced motion ===== */
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .reveal{opacity:1!important;transform:none!important}
+}
+
+
+/* ===== fancy interactions ===== */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cobalt),var(--gold),var(--red));z-index:1100;box-shadow:0 0 10px rgba(201,168,76,.5);transition:width .12s linear}
+.hero-spark{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(235,220,166,.95),rgba(201,168,76,.15));pointer-events:none;animation:sparkFloat linear infinite;z-index:0}
+@keyframes sparkFloat{0%{transform:translateY(20px) scale(.5);opacity:0}12%{opacity:.9}88%{opacity:.65}100%{transform:translateY(-140px) scale(1);opacity:0}}
+@media(prefers-reduced-motion:reduce){.hero-spark{display:none}.hero,.hero-card-vertical-front{animation:none!important}.scroll-progress{transition:none}}
+
+/* ===== gift box hero ===== */
+.hero-giftbox-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%;padding:6px 0 36px}
+.hero-giftbox-wrap::before{content:'';position:absolute;width:74%;height:74%;background:radial-gradient(circle,rgba(201,168,76,.38),transparent 62%);filter:blur(28px);animation:glowPulse 5s ease-in-out infinite}
+.hero-giftbox{position:relative;width:100%;max-width:540px;filter:drop-shadow(0 28px 56px rgba(0,0,0,.42));transform-origin:center bottom;animation:giftPop 1.1s cubic-bezier(.18,1.3,.4,1) .15s both,giftFloat 6s ease-in-out 1.3s infinite;cursor:pointer;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.hero-giftbox:hover{transform:scale(1.05) translateY(-8px)}
+@keyframes giftPop{0%{opacity:0;transform:scale(.7) translateY(46px)}60%{opacity:1;transform:scale(1.05) translateY(-8px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes giftFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+/* ===== heatmap ===== */
+.moscow-map{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.map-pins{position:absolute;inset:0;z-index:1}
+.map-pin .pin-label{opacity:0;transform:translateY(6px) scale(.92);transition:var(--ease);pointer-events:none}
+.map-pin:hover .pin-label,.map-pin.hot .pin-label{opacity:1;transform:none}
+.map-pin .pin-dot{width:12px;height:12px;background:var(--cobalt)}
+.map-pin .pin-dot::after{content:none}
+.map-pin.hot .pin-dot{width:18px;height:18px;background:var(--red)}
+.map-pin.hot .pin-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(213,43,30,.4);animation:pinPing 2s ease-out infinite}
+.map-pin .pin-label b{color:var(--red);margin-left:2px}
+.map-legend{position:relative;z-index:2}
+@media(prefers-reduced-motion:reduce){.hero-giftbox{animation:none}}
+
+/* ===== #hero 右侧主视觉 override（透明PNG单主体，无视频） ===== */
+#hero{background:linear-gradient(135deg,#04122E 0%,#082352 40%,#0A2E6E 68%,#06183F 100%);position:relative;overflow:hidden;animation:none}
+#hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(46% 42% at 80% 18%,rgba(46,124,255,.28),transparent 60%),radial-gradient(38% 34% at 12% 84%,rgba(0,176,255,.16),transparent 60%);animation:heroAura 12s ease-in-out infinite alternate}
+#hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:24px 24px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 82%);mask-image:linear-gradient(to bottom,#000,transparent 82%)}
+@keyframes heroAura{from{transform:translate3d(0,0,0)}to{transform:translate3d(-2%,1.5%,0) scale(1.05)}}
+#hero .hero-right{display:flex;align-items:center;justify-content:center;position:relative;padding:0 0 40px}
+.hero-visual{position:relative;width:100%;max-width:600px;display:flex;align-items:center;justify-content:center}
+.hero-visual::before{content:"";position:absolute;width:78%;height:78%;border-radius:50%;z-index:0;background:radial-gradient(circle,rgba(46,124,255,.30),rgba(201,168,76,.12) 46%,transparent 72%);filter:blur(46px);animation:artGlow 6s ease-in-out infinite}
+@keyframes artGlow{0%,100%{opacity:.7;transform:scale(.95)}50%{opacity:1;transform:scale(1.08)}}
+.hero-art{position:relative;z-index:2;width:100%;height:auto;display:block;filter:drop-shadow(0 30px 58px rgba(2,12,40,.5));transform-origin:center;cursor:pointer;transition:transform .55s cubic-bezier(.16,1,.3,1);animation:artIn 1s cubic-bezier(.2,1.12,.35,1) .15s both, artFloat 6s ease-in-out 1.3s infinite}
+.hero-art:hover{transform:translateY(-12px) rotate(-2deg) scale(1.05)}
+@keyframes artIn{0%{opacity:0;transform:translateY(46px) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes artFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.hero-coin,.hero-star{position:absolute;pointer-events:none;animation:coinFloat ease-in-out infinite}
+.hero-coin{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#F6EBC2,#C9A84C 72%);box-shadow:0 4px 10px rgba(201,168,76,.5),inset 0 -2px 3px rgba(120,90,20,.45)}
+.hero-star{color:#EBDCA6;font-size:14px;text-shadow:0 0 8px rgba(235,220,166,.8)}
+.coin-1{top:14%;left:6%;z-index:3;animation-duration:7s}
+.coin-2{top:64%;right:5%;z-index:3;width:12px;height:12px;animation-duration:9s;animation-delay:-2s}
+.coin-3{top:82%;left:16%;z-index:1;width:20px;height:20px;animation-duration:8s;animation-delay:-4s}
+.star-1{top:8%;right:20%;z-index:3;animation-duration:6s}
+.star-2{top:46%;left:0;z-index:1;font-size:18px;animation-duration:10s;animation-delay:-3s}
+@keyframes coinFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(12deg)}}
+@media(max-width:1024px){#hero .hero-right{padding-bottom:24px}.hero-visual{max-width:440px}}
+@media(max-width:480px){.hero-visual{max-width:320px}.hero-coin,.hero-star{display:none}}
+@media(prefers-reduced-motion:reduce){#hero::before,.hero-art,.hero-coin,.hero-star,.hero-visual::before{animation:none!important}.hero-art:hover{transform:none}}
+
+
+/* ===== PRICING BADGE FIX ===== */
+
+.pricing-card.featured {
+    overflow: visible !important;
+    padding-top: 56px !important;
+}
+
+.pricing-card.featured::before {
+    top: -18px !important;
+    z-index: 10 !important;
+    padding: 7px 28px !important;
+    min-width: 86px !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    border-radius: 999px !important;
+    box-shadow: 0 8px 20px rgba(201,168,76,.36) !important;
+}
+
+
+/* ===== MOBILE MERCHANT GRID FIX ===== */
+
+/* 商户卡片不要依赖 reveal 动画，避免手机端初次进入“全部”空白 */
+#mcatGrid,
+#mcatGridAll,
+.mcat-grid,
+.mcat-grid.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+#mcatGrid > *,
+#mcatGridAll > * {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+@media (max-width: 768px) {
+    .mcat-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+    }
+
+    .merchant-collection {
+        padding-bottom: 56px !important;
+    }
+
+    .mcat-card {
+        border-radius: 22px !important;
+    }
+}
+
+
+</style>
+</head>
+<body class="">
+
+<div id="toast" class="toast"></div>
+
+<!-- ===== NAVBAR ===== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="navbar">
+    <div class="navbar-inner">
+        <a href="#" onclick="navigateTo(&#39;home&#39;);return false;" class="logo">
+            <img src="./images/俄优卡LOGO新.png" alt="俄优卡" id="siteLogo" onerror="this.style.display=&#39;none&#39;;this.nextElementSibling.style.display=&#39;block&#39;">
+            <div style="display:none">
+                <div class="logo-text" data-i18n="brand.name">俄优卡</div>
+                <span class="logo-en" data-i18n="brand.en">U CARD</span>
+            </div>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="navigateTo(&#39;home&#39;);return false;" class="active" data-page="home" data-i18n="nav.home">首页</a>
+            <a href="#" onclick="navigateTo(&#39;team&#39;);return false;" data-page="team" data-i18n="nav.team">俄优卡团队</a>
+            <a href="#" onclick="navigateTo(&#39;merchants&#39;);return false;" data-page="merchants" data-i18n="nav.merchants">商户集</a>
+            <a href="#" onclick="navigateTo(&#39;login&#39;);return false;" data-page="login" data-i18n="nav.login">登录</a>
+            <a href="#" onclick="applyCard();return false;" class="btn-primary-nav" data-i18n="nav.apply">立即申领</a>
+            <!-- Language Selector -->
+            <div class="lang-selector">
+                <button class="lang-btn" onclick="toggleLangDropdown()" title="选择语言">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"></path></svg>
+                    <span id="langLabel">语言</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="active" data-lang="zh" onclick="setLanguage(&#39;zh&#39;)" data-lag="zh"><span class="flag">🇨🇳</span> 中文</button>
+                    <button data-lang="ru" onclick="setLanguage(&#39;ru&#39;)" data-lag="ru"><span class="flag">🇷🇺</span> Русский</button>
+                    <button data-lang="en" onclick="setLanguage(&#39;en&#39;)" data-lag="en"><span class="flag">🇬🇧</span> English</button>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<!-- ===== PAGE: HOME ===== -->
+<div class="page active" id="page-home">
+
+    <!-- HERO -->
+    <section class="hero" id="hero" data-module="hero">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <div class="hero-tag" data-i18n="hero.tag">✦ 旅俄留俄人士专属消费折扣卡</div>
+                <h1 data-i18n="hero.title">俄优卡 <span class="gold">U Card</span></h1>
+                <p class="slogan" data-i18n="hero.slogan">U 卡在手 · 莫城我有</p>
+                <p class="desc" data-i18n="hero.desc">专为在俄留学生、旅俄游客及华人华侨打造的顶级消费折扣VIP权益卡。<br>持卡即享莫斯科 <strong>40+</strong> 精选商家低至 <strong>8 折</strong> 独家优惠。<br>餐饮 · 奶茶 · 美发 · 物流 · 翻译 · 摄影 — 一卡全覆盖。</p>
+                <div class="hero-actions">
+                    <a href="#" onclick="applyCard();return false;" class="btn btn-red" data-i18n="hero.cta1">🔥 立即申领 U Card</a>
+                    <a href="#" onclick="navigateTo(&#39;merchants&#39;);return false;" class="btn btn-white-outline" data-i18n="hero.cta2">浏览合作商户</a>
+                </div>
+            </div>
+                                                <div class="hero-right">
+                <div class="hero-visual">
+                    <span class="hero-coin coin-1" aria-hidden="true"></span>
+                    <span class="hero-coin coin-2" aria-hidden="true"></span>
+                    <span class="hero-coin coin-3" aria-hidden="true"></span>
+                    <span class="hero-star star-1" aria-hidden="true">✦</span>
+                    <span class="hero-star star-2" aria-hidden="true">✦</span>
+                    <a href="https://shop185885872.youzan.com/wscuser/membercenter?kdt_id=185693704" target="_blank" rel="noopener noreferrer" class="hero-art-link" aria-label="立即申领俄优卡 VIP">
+<img src="images/去背景的白盒子.png" alt="俄优卡 VIP 礼盒主视觉" class="hero-art">
+</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRACKER -->
+    <section class="savings-tracker">
+        <div class="tracker-grid reveal visible" id="trackerGrid"></div>
+    </section>
+
+    <!-- VIDEO PROMO -->
+    <section class="section" style="background:var(--bg)">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="video.tag">PROMO</span></div>
+            <h2 class="section-title" data-i18n="video.title">宣传 <span class="gold">视频</span></h2>
+            <p class="section-subtitle" data-i18n="video.sub">一分钟了解俄优卡，开启你的莫斯科省钱之旅</p>
+            <div style="max-width:720px;margin:0 auto;border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-md);background:#000">
+                <video preload="none" width="100%" controls="" playsinline="" poster="./images/俄优卡竖版设计.png" style="display:block">
+                    <source src="./images/promo-video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section" style="background:var(--white)">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="benefits.tag">COVERAGE</span></div>
+            <h2 class="section-title" data-i18n="benefits.title">权益 <span class="gold">全覆盖</span></h2>
+            <p class="section-subtitle" data-i18n="benefits.sub">从舌尖到指尖，从生活到娱乐 — 俄优卡为你网罗莫斯科最值得拥有的优惠</p>
+            <div class="benefits-grid reveal" id="benefitsGrid"><div class="benefit-card"><div class="benefit-icon">🍜</div><h3>餐饮美食</h3><p>川菜、粤菜、东北菜等中餐全覆盖</p><span class="tag">8折起</span></div><div class="benefit-card"><div class="benefit-icon">🫖</div><h3>奶茶甜品</h3><p>TEACHA、甜蜜蜜等热门品牌</p><span class="tag">8.5折起</span></div><div class="benefit-card"><div class="benefit-icon">💇</div><h3>美容美发</h3><p>剪发、造型、美甲美睫一应俱全</p><span class="tag">8折起</span></div><div class="benefit-card"><div class="benefit-icon">📦</div><h3>物流商超</h3><p>全俄空运、极兔速递等寄送服务</p><span class="tag">8.5折起</span></div><div class="benefit-card"><div class="benefit-icon">📜</div><h3>翻译公证</h3><p>文件翻译、公证认证、法务咨询</p><span class="tag">8折起</span></div><div class="benefit-card"><div class="benefit-icon">🎯</div><h3>休闲娱乐</h3><p>摄影、舞蹈、鲜花等品质生活服务</p><span class="tag">8.5折起</span></div></div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="section map-section">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="map.tag">MOSCOW HOTSPOTS</span></div>
+            <h2 class="section-title" data-i18n="map.title">合作商户 <span class="gold">热力地图</span></h2>
+            <p class="section-subtitle" data-i18n="map.sub">莫斯科热门商圈，俄优卡持卡人专属优惠一触即达</p>
+                        <div class="map-container">
+                <svg class="moscow-map" viewBox="0 0 920 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="riv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9CC0E8"/><stop offset="1" stop-color="#6FA0D8"/></linearGradient></defs><g fill="none" stroke="rgba(0,57,166,.10)" stroke-width="2"><ellipse cx="470" cy="232" rx="360" ry="182"/><ellipse cx="470" cy="232" rx="232" ry="120"/><ellipse cx="470" cy="232" rx="120" ry="64"/></g><g stroke="rgba(0,57,166,.06)" stroke-width="2"><line x1="470" y1="40" x2="470" y2="424"/><line x1="90" y1="232" x2="850" y2="232"/><line x1="180" y1="70" x2="760" y2="394"/><line x1="760" y1="70" x2="180" y2="394"/></g><path d="M110,118 C300,180 360,300 520,300 C660,300 720,200 860,300" fill="none" stroke="url(#riv)" stroke-width="14" stroke-linecap="round" opacity=".5"/><circle cx="470" cy="232" r="5" fill="rgba(213,43,30,.5)"/></svg>
+                <div class="map-pins" id="mapPins"></div>
+                <div class="map-legend" id="mapLegend"><span class="map-legend-item"><span class="dot red"></span>热门合作商户</span><span class="map-legend-item"><span class="dot blue"></span>其他合作商户</span><span class="map-legend-item">📍 点击查看详情</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MERCHANT COLLECTION -->
+    <section class="merchant-collection">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="mcat.tag">PARTNERS</span></div>
+            <h2 class="section-title" data-i18n="mcat.title">精选 <span class="gold">商户集</span></h2>
+            <p class="section-subtitle" data-i18n="mcat.sub">莫斯科 40+ 优质商家，涵盖餐饮、生活、娱乐全品类</p>
+            <div class="mcat-filters" id="mcatFilters"><button class="mcat-btn active" data-cat="all" onclick="filterMCatHome(&#39;all&#39;)">全部</button><button class="mcat-btn " data-cat="dining" onclick="filterMCatHome(&#39;dining&#39;)">🍜 餐饮</button><button class="mcat-btn " data-cat="service" onclick="filterMCatHome(&#39;service&#39;)">💇 生活服务</button><button class="mcat-btn " data-cat="entertainment" onclick="filterMCatHome(&#39;entertainment&#39;)">🎯 休闲娱乐</button><button class="mcat-btn " data-cat="logistics" onclick="filterMCatHome(&#39;logistics&#39;)">📦 物流</button></div>
+            <div class="mcat-grid" id="mcatGrid"></div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="section case-studies">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="cases.tag">REAL SAVINGS</span></div>
+            <h2 class="section-title" data-i18n="cases.title">持卡人 <span class="gold">省钱故事</span></h2>
+            <p class="section-subtitle" data-i18n="cases.sub">看看在莫小伙伴们用俄优卡省下了多少真金白银</p>
+            <div class="cases-grid reveal" id="casesGrid"><div class="case-card"><div class="quote-icon">"</div><span class="case-saved">₽12,800</span><div class="case-text">开学季在海底捞请同学吃饭用了俄优卡，打8.5折省了2000多卢布！推荐办了全年卡，半年就回本了。</div><div class="case-author"><div class="avatar">林</div><div class="info"><div class="name">小林</div><div class="school">莫斯科大学</div></div></div></div><div class="case-card"><div class="quote-icon">"</div><span class="case-saved">₽8,500</span><div class="case-text">每个月都要寄材料回国，用俄优卡在全俄空运打8.5折，一次省好несколько сотен卢布，一年下来真的不少。</div><div class="case-author"><div class="avatar">王</div><div class="info"><div class="name">小王</div><div class="school">莫斯科国立师范大学</div></div></div></div><div class="case-card"><div class="quote-icon">"</div><span class="case-saved">₽15,200</span><div class="case-text">周末经常跟朋友去丝路印象吃饭，8.5折加上推荐返现，这学期光餐饮就省了上万卢布，强烈推荐！</div><div class="case-author"><div class="avatar">陈</div><div class="info"><div class="name">小陈</div><div class="school">石油天然气大学</div></div></div></div></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="faq.tag">FAQ</span></div>
+            <h2 class="section-title" data-i18n="faq.title">常见 <span class="gold">问题</span></h2>
+            <p class="section-subtitle" data-i18n="faq.sub">关于俄优卡，你想知道的都在这里</p>
+            <div class="faq-list reveal" id="faqList"><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(0)">什么是俄优卡？<span class="faq-icon">+</span></button><div class="faq-a">俄优卡是专为在俄中国留学生和华人打造的消费折扣权益卡。持卡人可在莫斯科40+合作商家享受低至8折的独家优惠，涵盖餐饮、奶茶、美发、物流、翻译、摄影等各类消费场景。</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(1)">如何申领俄优卡？<span class="faq-icon">+</span></button><div class="faq-a">在线选择半年卡或全年卡方案，填写基本信息完成支付后即可自动激活。VIP号将通过短信发送至你的手机，随后即可在合作商户出示电子卡享受折扣。</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(2)">俄优卡在哪些商户可以使用？<span class="faq-icon">+</span></button><div class="faq-a">俄优卡目前与莫斯科40+优质商家建立了合作，包括丝路印象、嘉宴、竹子餐厅、TEACHA、美丽直通车、功夫推拿、全俄空运等，覆盖餐饮、生活服务、物流、娱乐等品类。</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(3)">电子卡如何使用？<span class="faq-icon">+</span></button><div class="faq-a">到合作商户消费时，打开「俄优卡」会员中心展示电子卡，商户扫码核销后即可享受专属折扣。部分商户可能需要出示VIP号。</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(4)">俄优卡可以退款吗？<span class="faq-icon">+</span></button><div class="faq-a">俄优卡为虚拟权益产品，购买激活后不支持退款。如有特殊情况请联系客服协调处理。</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFAQ(5)">如何成为合作商户或校园大使？<span class="faq-icon">+</span></button><div class="faq-a">商户合作或校园大使申请，请发送邮件至 ucard.life@gmail.com，我们的运营经理将在24小时内与您联系。</div></div></div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" style="background:var(--white)">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="pricing.tag">PRICING</span></div>
+            <h2 class="section-title" data-i18n="pricing.title">价格 <span class="gold">方案</span></h2>
+            <p class="section-subtitle" data-i18n="pricing.sub">灵活选择，超低门槛，立刻开启莫斯科省钱之旅</p>
+            <div class="pricing-grid reveal" id="pricingGrid"><div class="pricing-card">
+        <div class="price"><span class="unit">¥</span>19.8<span style="font-size:28px"></span></div>
+        <div class="price-label">半年卡 · 180 天权益</div>
+        <ul class="features"><li>所有合作商户折扣权益</li><li>电子卡实时展示 · 扫码核销</li><li>专属 VIP 客服支持</li><li>推荐好友返现 ¥5/人</li></ul>
+        <a href="#" onclick="navigateTo(&#39;login&#39;);return false;" class="btn btn-outline">选择半年卡</a>
+    </div>
+    <div class="pricing-card featured" data-recommend="推荐">
+        <div class="price"><span class="unit">¥</span>36.8<span style="font-size:28px"></span></div>
+        <div class="price-label">全年卡 · 365 天权益</div>
+        <ul class="features"><li>所有合作商户折扣权益</li><li>电子卡实时展示 · 扫码核销</li><li>专属 VIP 客服支持</li><li>推荐好友返现 ¥5/人</li><li>🎁 限时赠新人礼包</li></ul>
+        <a href="#" onclick="navigateTo(&#39;login&#39;);return false;" class="btn btn-red">🔥 选择全年卡</a>
+    </div></div>
+        </div>
+    </section>
+
+    <!-- RECRUIT -->
+    <section class="partner-recruit">
+        <div class="recruit-inner reveal" id="recruitSection"><div class="recruit-left"><h2>🤝 合作 <span style="color:var(--gold)">招募</span></h2><p>俄优卡正在快速扩展莫斯科合作版图。无论你是商家还是留学生，欢迎加入我们的生态。</p>
+        <ul class="recruit-features"><li>零门槛入驻，免费成为合作商户</li><li>精准触达 2000+ 高消费力中国留学生</li><li>专属运营经理一对一对接</li></ul>
+        <a href="https://shop185885872.m.youzan.com/v2/feature/Y23mRMcb7T" target="_blank" rel="noopener noreferrer" class="btn btn-gold">📩 成为合作商户</a></div>
+        <div class="recruit-right"><div class="recruit-card"><h3>🏪 商户合作</h3><p>面向莫斯科餐饮、服务、零售等各行业商家。加入俄优卡，即刻获得来自中国留学生群体的稳定客源与品牌曝光。</p><span class="tag">零费用 · 高曝光</span></div><div class="recruit-card"><h3>🎓 校园大使</h3><p>面向莫斯科各高校中国留学生。成为俄优卡校园推广大使，赚取推广佣金，积累运营与市场实战经验。</p><span class="tag">薪资 + 提成 · 校园大使聘书</span></div></div></div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section id="bottomCta" style="background:linear-gradient(135deg,var(--cobalt-dark),var(--cobalt));color:var(--white);text-align:center;padding:72px 24px"><h2 style="font-size:34px;font-weight:800;margin-bottom:12px">立即加入 <span style="color:var(--gold)">2000+</span> 俄优卡持卡人</h2>
+        <p style="font-size:16px;opacity:0.8;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">莫斯科 40+ 商家折扣，一张卡全搞定 — 你的留学省钱必备</p>
+        <a href="#" onclick="navigateTo(&#39;login&#39;);return false;" class="btn btn-red" style="font-size:17px;padding:16px 48px">🔥 立即申领俄优卡</a></section>
+</div>
+
+<!-- ===== PAGE: TEAM ===== -->
+<div class="page" id="page-team">
+    <section class="section" style="background:var(--white)">
+        <div class="container">
+            <div style="text-align:center"><span class="section-tag" data-i18n="team.tag">TEAM</span></div>
+            <h2 class="section-title" data-i18n="team.title">俄优卡 <span class="gold">团队</span></h2>
+            <p class="section-subtitle" data-i18n="team.sub">一群热爱莫斯科的年轻人，为你打造最好的留学生活体验</p>
+            <div class="team-dept" id="teamDeptBrand">
+                <h3 class="team-dept-title" style="font-size:22px;font-weight:700;color:var(--cobalt);margin-bottom:24px;padding-bottom:8px;border-bottom:2px solid var(--gold)" data-i18n="team.brand">品牌部</h3>
+                <div class="team-grid" id="teamGridBrand"></div>
+            </div>
+            <div class="team-dept" id="teamDeptMarket" style="margin-top:48px">
+                <h3 class="team-dept-title" style="font-size:22px;font-weight:700;color:var(--cobalt);margin-bottom:24px;padding-bottom:8px;border-bottom:2px solid var(--gold)" data-i18n="team.marketing">市场部</h3>
+                <div class="team-grid" id="teamGridMarket"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ===== PAGE: MERCHANTS ===== -->
+<div class="page" id="page-merchants">
+    <div style="background:var(--white);padding:40px 24px;border-bottom:1px solid var(--border);text-align:center">
+        <div class="container">
+            <h2 style="font-size:28px;color:var(--cobalt);font-weight:700" data-i18n="merchantsPage.title">全部合作商户</h2>
+            <p style="color:var(--text-secondary);margin-bottom:24px" data-i18n="merchantsPage.sub">莫斯科 40+ 优质商家，持俄优卡即享独家折扣</p>
+            <div class="mcat-filters" id="mcatFiltersAll" style="margin-bottom:0"><button class="mcat-btn active" data-cat="all" onclick="filterMCatAllPage(&#39;all&#39;)">全部</button><button class="mcat-btn " data-cat="dining" onclick="filterMCatAllPage(&#39;dining&#39;)">🍜 餐饮</button><button class="mcat-btn " data-cat="service" onclick="filterMCatAllPage(&#39;service&#39;)">💇 生活服务</button><button class="mcat-btn " data-cat="entertainment" onclick="filterMCatAllPage(&#39;entertainment&#39;)">🎯 休闲娱乐</button><button class="mcat-btn " data-cat="logistics" onclick="filterMCatAllPage(&#39;logistics&#39;)">📦 物流</button></div>
+        </div>
+    </div>
+    <div class="container" style="padding:48px 24px"><div class="mcat-grid" id="mcatGridAll"></div></div></div>
+
+<!-- ===== PAGE: LOGIN ===== -->
+<div class="page" id="page-login">
+    <div class="login-page">
+        <div class="login-card">
+            <h2 data-i18n="login.title">欢迎</h2>
+            <p class="login-sub" data-i18n="login.sub">登录俄优卡账户</p>
+            <div class="login-tabs">
+                <button class="login-tab active" onclick="switchLoginTab(&#39;member&#39;)" data-i18n="login.memberTab">会员登录</button>
+                <button class="login-tab" onclick="switchLoginTab(&#39;admin&#39;)" data-i18n="login.adminTab">管理员登录</button>
+            </div>
+            <div id="loginError" class="login-error"></div>
+            <div id="memberLoginForm">
+                <div class="form-group"><label data-i18n="login.vipLabel">俄优卡 VIP 号</label><input type="text" id="memberVip" placeholder="请输入您的 VIP 号" autocomplete="off"></div>
+                <div class="form-group"><label data-i18n="login.nameLabel">用户名</label><input type="text" id="memberName" placeholder="请输入您的用户名" autocomplete="off"></div>
+                <button class="btn btn-red" onclick="memberLogin()" data-i18n="login.btn">登录</button>
+            </div>
+            <div id="adminLoginForm" class="hidden">
+                <div class="form-group"><label data-i18n="login.adminUserLabel">管理员账号</label><input type="text" id="adminUser" placeholder="请输入管理员账号" autocomplete="off"></div>
+                <div class="form-group"><label data-i18n="login.adminPassLabel">密码</label><input type="password" id="adminPass" placeholder="请输入密码" autocomplete="off"></div>
+                <button class="btn btn-red" onclick="adminLogin()" data-i18n="login.btn">登录</button>
+            </div>
+            <div class="login-footer" data-i18n="login.footer">还没有俄优卡？<a href="#" onclick="showToast(&#39;请关注「俄优卡」微信小程序在线申领&#39;);return false;">立即申领 →</a></div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: MEMBER ===== -->
+<div class="page" id="page-member">
+    <div class="container member-page">
+        <div class="member-header">
+            <div class="greeting">
+                <h2><span data-i18n="member.greeting">你好</span>，<span id="memberGreetingName">用户</span> ✦</h2>
+                <p data-i18n="member.sub">俄优卡时刻陪你省遍莫斯科</p>
+            </div>
+            <button class="btn-logout" onclick="logout()" data-i18n="member.logout">退出登录</button>
+        </div>
+        <div class="digital-card-wrap">
+            <div class="digital-card">
+                <div class="card-header"><div class="card-brand" data-i18n="brand.full">俄优卡 U CARD</div><div class="card-type" id="cardTypeTag">全年卡</div></div>
+                <div class="card-number" id="cardVipDisplay">VIP 10001</div>
+                <div class="card-holder">
+                    <div><div class="field" data-i18n="member.holder">持卡人</div><div class="value" id="cardHolderName">张三</div></div>
+                    <div class="card-valid"><div class="field" data-i18n="member.validUntil">有效期至</div><div class="value" id="cardValidUntil">2026-12-31</div></div>
+                </div>
+                <div class="card-qr">QR</div>
+            </div>
+            <button class="save-card-btn" style="margin-top:10px;font-size:13px;color:var(--text-secondary);display:flex;align-items:center;gap:6px" onclick="saveCardImage()" data-i18n="member.saveCard">📷 保存电子卡截图</button>
+        </div>
+        <div class="member-stats">
+            <div class="ms-card"><div class="ms-num" id="totalSavings">¥0</div><div class="ms-label" data-i18n="member.savings">累计节省</div></div>
+            <div class="ms-card"><div class="ms-num" id="usageCount">0</div><div class="ms-label" data-i18n="member.usage">已使用次数</div></div>
+            <div class="ms-card"><div class="ms-num" id="referralCount">0</div><div class="ms-label" data-i18n="member.referrals">推荐好友</div></div>
+        </div>
+        <div class="usage-section"><h3 data-i18n="member.recentTitle">近期使用记录</h3><div class="usage-list" id="usageList"></div></div>
+        <div class="referral-box">
+            <h3 data-i18n="member.refTitle">✨ 推荐好友得返现</h3>
+            <p style="font-size:14px;color:var(--text-secondary);margin-bottom:12px" id="refDesc"></p>
+            <div class="ref-link">
+                <input type="text" id="refLinkInput" readonly="" value="https://ucard.ru/refer?ref=">
+                <button onclick="copyRefLink()" data-i18n="member.copyBtn">复制推荐链接</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE: ADMIN ===== -->
+<div class="page" id="page-admin">
+    <div class="container admin-page">
+        <div class="admin-header"><h2 data-i18n="admin.title">📊 管理员后台</h2><button class="btn-logout" onclick="logout()" data-i18n="member.logout">退出登录</button></div>
+        <div class="admin-stats" id="adminStats"><div class="admin-stat-card"><div class="asc-label">总会员数</div><div class="asc-num">--</div><div class="asc-change">—</div></div><div class="admin-stat-card"><div class="asc-label">本月新增</div><div class="asc-num">--</div><div class="asc-change">—</div></div><div class="admin-stat-card"><div class="asc-label">活跃会员（近30天）</div><div class="asc-num">--</div><div class="asc-change">—</div></div></div>
+        <div class="chart-section">
+            <h3 data-i18n="admin.chartTitle">📈 近7日新增会员趋势</h3>
+            <div class="bar-chart" id="barChart"></div>
+        </div>
+        <div>
+            <h3 style="font-size:18px;font-weight:600;margin-bottom:16px" data-i18n="admin.memberMgmt">🔍 会员信息管理</h3>
+            <div class="admin-search">
+                <input type="text" id="adminSearchInput" placeholder="搜索姓名、VIP号…" oninput="adminSearchMembers()">
+                <select id="adminCardFilter" onchange="adminSearchMembers()"><option value="all" data-i18n="admin.allTypes">全部卡类型</option><option value="全年卡">全年卡</option><option value="半年卡">半年卡</option></select>
+                <span style="font-size:14px;color:var(--text-secondary)" id="searchResultCount"></span>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead><tr id="adminTableHead"><th>姓名</th><th>VIP号</th><th>手机号</th><th>卡类型</th><th>办卡日期</th><th>有效期至</th><th>状态</th></tr></thead>
+                    <tbody id="adminMemberTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="f-brand"><span data-i18n="brand.full">俄优卡 U Card</span></div>
+        <p data-i18n="footer.desc">专为在俄中国留学生与华人打造的消费折扣权益卡<br>实际办卡请关注「俄优卡」微信小程序</p>
+        <div class="f-links" id="footerLinks"><a href="#" onclick="navigateTo(&#39;home&#39;);return false">首页</a><a href="#" onclick="navigateTo(&#39;merchants&#39;);return false">商户集</a><a href="#" onclick="showToast(&#39;合作请发邮件至 ucard.life@gmail.com&#39;);return false">商务合作</a><a href="#" onclick="showToast(&#39;客服微信：ucard_helper&#39;);return false">联系我们</a></div>
+        <p style="margin-top:16px;font-size:12px;opacity:0.5" data-i18n="footer.copyright">© 2025-2026 俄优卡 · All Rights Reserved</p>
+    </div>
+</footer>
+
+<script>
+/* =============================================================
+   MULTI-LANGUAGE DATA
+   ============================================================= */
+const L = { zh:{}, ru:{}, en:{} };
+
+// ---- HTML title ----
+L.zh.html = { title:'俄优卡 U Card — U卡在手，莫城我有' };
+L.ru.html = { title:'Ю карта — Ю карта в руках — вся Москва твоя' };
+L.en.html = { title:'U Card — U Card in Hand, Moscow is Yours' };
+
+// ---- Navigation ----
+L.zh.nav = { home:'首页', team:'俄优卡团队', merchants:'商户集', login:'登录', apply:'立即申领', lang:'语言' };
+L.ru.nav = { home:'Главная', team:'Команда', merchants:'Партнёры', login:'Войти', apply:'Оформить', lang:'语言' };
+L.en.nav = { home:'Home', team:'Our Team', merchants:'Merchants', login:'Login', apply:'Apply Now', lang:'语言' };
+
+// ---- Brand ----
+L.zh.brand = { name:'俄优卡', en:'U CARD', full:'俄优卡 U Card' };
+L.ru.brand = { name:'Ю карта', en:'U CARD', full:'Ю карта U Card' };
+L.en.brand = { name:'U Card', en:'U CARD', full:'U Card' };
+
+// ---- Card fallback ----
+L.zh.card = { fallback:'俄优卡 U CARD' };
+L.ru.card = { fallback:'Ю карта U CARD' };
+L.en.card = { fallback:'U Card' };
+
+// ---- Team ----
+L.zh.team = { tag:'TEAM', title:'俄优卡 <span class="gold">核心团队</span>', sub:'异地高效协作、权责分明的现代互联网创业操盘团队',
+    brand:'品牌部', marketing:'市场部',
+    members:[
+        {name:'Dr. Lee',role:'PR Director 品牌总监',dept:'brand',avatar:'DL',bio:'全盘负责全渠道品牌定位与视觉 VI 体系，统筹传播矩阵，主导与各大学联总会及跨界自媒体大V的联合品牌营销。'},
+        {name:'Alina Van',role:'品牌部产品经理',dept:'brand',avatar:'AV',bio:'负责私域用户社群的精细化运营、答疑促活与第一客服接口，统筹新媒体内容文案与宣发引流排期。'},
+        {name:'Dr. Zhou',role:'COO 市场总监',dept:'market',avatar:'DZ',bio:'全盘负责商业化变现路径设计、市场公关 GR、本地合伙人股权机制，以及中介与跨境物流等大 B 端机构的战略签约。'},
+        {name:'Json Lee',role:'市场部产品经理',dept:'market',avatar:'JL',bio:'负责莫斯科本地华人商圈的线下商家 BD 拓展与商务谈判、门店物料铺设、收银打折培训及商户信息上架管理。'}
+    ]};
+L.ru.team = { tag:'КОМАНДА', title:'Команда <span class="gold">U Card</span>', sub:'Слаженная распределённая команда с чёткими ролями',
+    brand:'Отдел бренда', marketing:'Отдел маркетинга',
+    members:[
+        {name:'Dr. Lee',role:'PR Director',dept:'brand',avatar:'DL',bio:'Отвечает за позиционирование бренда и визуальную систему, координирует коммуникации и коллабы со студсоюзами и блогерами.'},
+        {name:'Alina Van',role:'Менеджер по бренду',dept:'brand',avatar:'AV',bio:'Ведёт сообщество, поддержку и первую линию сервиса, отвечает за контент и график продвижения.'},
+        {name:'Dr. Zhou',role:'COO',dept:'market',avatar:'DZ',bio:'Отвечает за монетизацию, GR, партнёрские доли и стратегические контракты с агентствами и логистикой.'},
+        {name:'Json Lee',role:'Менеджер по маркетингу',dept:'market',avatar:'JL',bio:'Отвечает за развитие партнёров в Москве, переговоры, материалы для точек и обучение персонала.'}
+    ]};
+L.en.team = { tag:'TEAM', title:'The <span class="gold">U Card Team</span>', sub:'A distributed, accountable team running U Card like a modern startup',
+    brand:'Brand Department', marketing:'Marketing Department',
+    members:[
+        {name:'Dr. Lee',role:'PR Director',dept:'brand',avatar:'DL',bio:'Leads brand positioning and visual identity across all channels; coordinates communications and co-branding with student unions and influencers.'},
+        {name:'Alina Van',role:'Brand Product Manager',dept:'brand',avatar:'AV',bio:'Runs the private community, member support and first-line service; owns social content and promotion scheduling.'},
+        {name:'Dr. Zhou',role:'COO',dept:'market',avatar:'DZ',bio:'Leads monetization, GR, partner equity design, and strategic deals with agencies and cross-border logistics.'},
+        {name:'Json Lee',role:'Market Product Manager',dept:'market',avatar:'JL',bio:'Leads local merchant BD and negotiations in Moscow, in-store materials, cashier training and listing management.'}
+    ]};
+
+// ---- Hero ----
+L.zh.hero = { tag:'✦ 旅俄留俄人士专属消费折扣卡', title:'俄优卡 <span class="gold">U Card</span>', slogan:'U 卡在手 · 莫城我有',
+    desc:'专为在俄留学生、旅俄游客及华人华侨打造的顶级消费折扣VIP权益卡。<br>持卡即享莫斯科 <strong>40+</strong> 精选商家低至 <strong>8 折</strong> 独家优惠。<br>餐饮 · 奶茶 · 美发 · 物流 · 翻译 · 摄影 — 一卡全覆盖。',
+    cta1:'🔥 立即申领 U Card', cta2:'浏览合作商户' };
+L.ru.hero = { tag:'✦ Эксклюзивная дисконтная карта для китайских студентов в России',
+    title:'<span class="gold">Ю карта</span>', slogan:'Ю карта в руках — вся Москва твоя',
+    desc:'Премиальная дисконтная карта для китайских студентов и китайцев в России.<br>Экономия до <strong>20%</strong> у <strong>40+</strong> партнёров в Москве.<br>Рестораны · Чай · Красота · Логистика · Перевод · Фото — всё в одной карте.',
+    cta1:'🔥 Оформить U Card', cta2:'Посмотреть партнёров' };
+L.en.hero = { tag:'✦ Exclusive Discount Card for Chinese Students in Russia',
+    title:'<span class="gold">U Card</span>', slogan:'U Card in Hand · Moscow is Yours',
+    desc:'Premium discount card designed for Chinese students and expats in Russia.<br>Enjoy exclusive discounts up to <strong>20% OFF</strong> at <strong>40+</strong> partner merchants in Moscow.<br>Dining · Tea · Beauty · Logistics · Translation · Photo — all in one card.',
+    cta1:'🔥 Get U Card Now', cta2:'Browse Partners' };
+
+// ---- Tracker ----
+L.zh.tracker = {
+    items:[{num:'2,000+',label:'👥 累计注册用户',sub:'平台已注册会员总数'},{num:'500+',label:'💎 活跃会员',sub:'近30天有消费记录'},{num:'40+',label:'🤝 合作商户',sub:'莫斯科优质签约商家'}]
+};
+L.ru.tracker = {
+    items:[{num:'2,000+',label:'👥 Зарегистрировано',sub:'Всего участников платформы'},{num:'500+',label:'💎 Активные участники',sub:'Покупки за 30 дней'},{num:'40+',label:'🤝 Партнёры',sub:'Проверенные магазины Москвы'}]
+};
+L.en.tracker = {
+    items:[{num:'2,000+',label:'👥 Registered Users',sub:'Total members on the platform'},{num:'500+',label:'💎 Active Members',sub:'Purchases in last 30 days'},{num:'40+',label:'🤝 Partner Merchants',sub:'Quality merchants in Moscow'}]
+};
+
+// ---- Video ----
+L.zh.video = { tag:'PROMO', title:'宣传 <span class="gold">视频</span>', sub:'一分钟了解俄优卡，开启你的莫斯科省钱之旅' };
+L.ru.video = { tag:'ВИДЕО', title:'Видео <span class="gold">U Card</span>', sub:'Узнайте о Ю карте за одну минуту' };
+L.en.video = { tag:'PROMO', title:'Promo <span class="gold">Video</span>', sub:'Learn about U Card in one minute and start saving in Moscow' };
+
+// ---- Benefits ----
+L.zh.benefits = { tag:'COVERAGE', title:'权益 <span class="gold">全覆盖</span>', sub:'从舌尖到指尖，从生活到娱乐 — 俄优卡为你网罗莫斯科最值得拥有的优惠',
+    items:[
+        {icon:'🍜',title:'餐饮美食',desc:'川菜、粤菜、东北菜等中餐全覆盖',tag:'8折起'},
+        {icon:'🫖',title:'奶茶甜品',desc:'TEACHA、甜蜜蜜等热门品牌',tag:'8.5折起'},
+        {icon:'💇',title:'美容美发',desc:'剪发、造型、美甲美睫一应俱全',tag:'8折起'},
+        {icon:'📦',title:'物流商超',desc:'全俄空运、极兔速递等寄送服务',tag:'8.5折起'},
+        {icon:'📜',title:'翻译公证',desc:'文件翻译、公证认证、法务咨询',tag:'8折起'},
+        {icon:'🎯',title:'休闲娱乐',desc:'摄影、舞蹈、鲜花等品质生活服务',tag:'8.5折起'}
+    ]};
+L.ru.benefits = { tag:'ОХВАТ', title:'Полный <span class="gold">охват</span>', sub:'От еды до развлечений — U Card собирает лучшие скидки Москвы',
+    items:[
+        {icon:'🍜',title:'Китайская кухня',desc:'Сычуаньская, кантонская, северо-восточная кухня',tag:'от 20%'},
+        {icon:'🫖',title:'Чай и десерты',desc:'TEACHA и другие популярные бренды',tag:'от 15%'},
+        {icon:'💇',title:'Красота и уход',desc:'Стрижки, укладки, маникюр',tag:'от 20%'},
+        {icon:'📦',title:'Логистика',desc:'Авиаперевозки, экспресс-доставка',tag:'от 15%'},
+        {icon:'📜',title:'Перевод и нотариат',desc:'Перевод документов, нотариальные услуги',tag:'от 20%'},
+        {icon:'🎯',title:'Развлечения',desc:'Фото, танцы, цветы и другие услуги',tag:'от 15%'}
+    ]};
+L.en.benefits = { tag:'COVERAGE', title:'Full <span class="gold">Coverage</span>', sub:'From dining to entertainment — U Card brings you Moscow\'s best deals',
+    items:[
+        {icon:'🍜',title:'Chinese Dining',desc:'Sichuan, Cantonese, Northeastern cuisine',tag:'from 20% OFF'},
+        {icon:'🫖',title:'Tea & Desserts',desc:'TEACHA and other trendy brands',tag:'from 15% OFF'},
+        {icon:'💇',title:'Beauty & Hair',desc:'Haircuts, styling, manicure & more',tag:'from 20% OFF'},
+        {icon:'📦',title:'Logistics',desc:'Air cargo, express delivery services',tag:'from 15% OFF'},
+        {icon:'📜',title:'Translation & Notary',desc:'Document translation, notarization',tag:'from 20% OFF'},
+        {icon:'🎯',title:'Entertainment',desc:'Photography, dance, flowers & more',tag:'from 15% OFF'}
+    ]};
+
+// ---- Map ----
+L.zh.map = { tag:'MOSCOW HOTSPOTS', title:'合作商户 <span class="gold">热力地图</span>', sub:'莫斯科热门商圈，俄优卡持卡人专属优惠一触即达',
+    pinSilkroad:'📍 丝路印象 <span style="color:var(--red);font-weight:700">8.5折</span>',
+    pinJiayan:'📍 嘉宴 <span style="color:var(--red);font-weight:700">8折</span>',
+    pinBamboo:'📍 竹子餐厅 <span style="color:var(--red);font-weight:700">8.5折</span>',
+    legend:[{cls:'red',txt:'热门合作商户'},{cls:'blue',txt:'其他合作商户'},{cls:'',txt:'📍 点击查看详情'}] };
+L.ru.map = { tag:'КАРТА ПАРТНЁРОВ', title:'Карта <span class="gold">партнёров</span>', sub:'Популярные районы Москвы — скидки U Card рядом с вами',
+    pinSilkroad:'📍 Шёлковый путь <span style="color:var(--red);font-weight:700">15%</span>',
+    pinJiayan:'📍 Цзяянь <span style="color:var(--red);font-weight:700">20%</span>',
+    pinBamboo:'📍 Бамбук <span style="color:var(--red);font-weight:700">15%</span>',
+    legend:[{cls:'red',txt:'Популярные партнёры'},{cls:'blue',txt:'Другие партнёры'},{cls:'',txt:'📍 Наведите для деталей'}] };
+L.en.map = { tag:'MOSCOW HOTSPOTS', title:'Partner <span class="gold">Heat Map</span>', sub:'Moscow\'s hottest districts — U Card discounts just around the corner',
+    pinSilkroad:'📍 Silk Road <span style="color:var(--red);font-weight:700">15% OFF</span>',
+    pinJiayan:'📍 Jiayan <span style="color:var(--red);font-weight:700">20% OFF</span>',
+    pinBamboo:'📍 Bamboo <span style="color:var(--red);font-weight:700">15% OFF</span>',
+    legend:[{cls:'red',txt:'Featured Partners'},{cls:'blue',txt:'Other Partners'},{cls:'',txt:'📍 Hover for details'}] };
+
+// ---- Merchant Collection ----
+L.zh.mcat = { tag:'PARTNERS', title:'精选 <span class="gold">商户集</span>', sub:'莫斯科 40+ 优质商家，涵盖餐饮、生活、娱乐全品类',
+    filters:[{v:'all',l:'全部'},{v:'dining',l:'🍜 餐饮'},{v:'service',l:'💇 生活服务'},{v:'entertainment',l:'🎯 休闲娱乐'},{v:'logistics',l:'📦 物流'}],
+    vip:'VIP ONLY', search:'搜索商户名称…' };
+L.ru.mcat = { tag:'ПАРТНЁРЫ', title:'Партнёры <span class="gold">U Card</span>', sub:'Более 40 партнёров в Москве — рестораны, услуги, развлечения',
+    filters:[{v:'all',l:'Все'},{v:'dining',l:'🍜 Рестораны'},{v:'service',l:'💇 Услуги'},{v:'entertainment',l:'🎯 Развлечения'},{v:'logistics',l:'📦 Логистика'}],
+    vip:'VIP ONLY', search:'Поиск партнёра…' };
+L.en.mcat = { tag:'PARTNERS', title:'Featured <span class="gold">Merchants</span>', sub:'40+ quality merchants in Moscow — dining, services, entertainment',
+    filters:[{v:'all',l:'All'},{v:'dining',l:'🍜 Dining'},{v:'service',l:'💇 Services'},{v:'entertainment',l:'🎯 Entertainment'},{v:'logistics',l:'📦 Logistics'}],
+    vip:'VIP ONLY', search:'Search merchants…' };
+
+// ---- Cases ----
+L.zh.cases = { tag:'REAL SAVINGS', title:'持卡人 <span class="gold">省钱故事</span>', sub:'看看在莫小伙伴们用俄优卡省下了多少真金白银',
+    items:[
+        {name:'小林',school:'莫斯科大学',avatar:'林',saved:'₽12,800',text:'开学季在海底捞请同学吃饭用了俄优卡，打8.5折省了2000多卢布！推荐办了全年卡，半年就回本了。'},
+        {name:'小王',school:'莫斯科国立师范大学',avatar:'王',saved:'₽8,500',text:'每个月都要寄材料回国，用俄优卡在全俄空运打8.5折，一次省好несколько сотен卢布，一年下来真的不少。'},
+        {name:'小陈',school:'石油天然气大学',avatar:'陈',saved:'₽15,200',text:'周末经常跟朋友去丝路印象吃饭，8.5折加上推荐返现，这学期光餐饮就省了上万卢布，强烈推荐！'}
+    ]};
+L.ru.cases = { tag:'РЕАЛЬНАЯ ЭКОНОМИЯ', title:'Истории <span class="gold">экономии</span>', sub:'Реальные истории студентов, сэкономивших с U Card',
+    items:[
+        {name:'Сяо Линь',school:'МГУ',avatar:'L',saved:'₽12,800',text:'Поужинал с друзьями в Haidilao со скидкой 15% — сэкономил 2000₽! Оформил годовую карту, окупилась за полгода.'},
+        {name:'Сяо Ван',school:'МПГУ',avatar:'W',saved:'₽8,500',text:'Каждый месяц отправляю документы в Китай. Со скидкой 15% на авиаперевозки экономлюнесколько сотен рублей за раз.'},
+        {name:'Сяо Чэнь',school:'РГУНиГ',avatar:'C',saved:'₽15,200',text:'Регулярно ужинаю с друзьями в Silk Road. Скидка 15% + бонусы за рекомендации — сэкономил более 10,000₽ за семестр!'}
+    ]};
+L.en.cases = { tag:'REAL SAVINGS', title:'Member <span class="gold">Savings Stories</span>', sub:'Real stories from students saving real money with U Card',
+    items:[
+        {name:'Xiao Lin',school:'MSU',avatar:'L',saved:'₽12,800',text:'Used U Card at Haidilao for a 15% discount on a group dinner — saved over 2,000₽! Got the annual card, paid for itself in 6 months.'},
+        {name:'Xiao Wang',school:'Moscow Pedagogical',avatar:'W',saved:'₽8,500',text:'Ship documents to China monthly. With 15% off at All-Russia Air Cargo, I save hundreds of rubles each time.'},
+        {name:'Xiao Chen',school:'Gubkin University',avatar:'C',saved:'₽15,200',text:'Regular dinners at Silk Road with 15% off plus referral bonuses — saved over 10,000₽ this semester alone! Highly recommend.'}
+    ]};
+
+// ---- FAQ ----
+L.zh.faq = { tag:'FAQ', title:'常见 <span class="gold">问题</span>', sub:'关于俄优卡，你想知道的都在这里',
+    items:[
+        {q:'什么是俄优卡？',a:'俄优卡是专为在俄中国留学生和华人打造的消费折扣权益卡。持卡人可在莫斯科40+合作商家享受低至8折的独家优惠，涵盖餐饮、奶茶、美发、物流、翻译、摄影等各类消费场景。'},
+        {q:'如何申领俄优卡？',a:'在线选择半年卡或全年卡方案，填写基本信息完成支付后即可自动激活。VIP号将通过短信发送至你的手机，随后即可在合作商户出示电子卡享受折扣。'},
+        {q:'俄优卡在哪些商户可以使用？',a:'俄优卡目前与莫斯科40+优质商家建立了合作，包括丝路印象、嘉宴、竹子餐厅、TEACHA、美丽直通车、功夫推拿、全俄空运等，覆盖餐饮、生活服务、物流、娱乐等品类。'},
+        {q:'电子卡如何使用？',a:'到合作商户消费时，打开「俄优卡」会员中心展示电子卡，商户扫码核销后即可享受专属折扣。部分商户可能需要出示VIP号。'},
+        {q:'俄优卡可以退款吗？',a:'俄优卡为虚拟权益产品，购买激活后不支持退款。如有特殊情况请联系客服协调处理。'},
+        {q:'如何成为合作商户或校园大使？',a:'商户合作或校园大使申请，请发送邮件至 ucard.life@gmail.com，我们的运营经理将在24小时内与您联系。'}
+    ]};
+L.ru.faq = { tag:'ЧАВО', title:'Часто <span class="gold">задаваемые вопросы</span>', sub:'Всё, что вы хотели знать о U Card',
+    items:[
+        {q:'Что такое U Card (俄优卡)?',a:'U Card — это дисконтная карта для китайских студентов и китайцев, проживающих в России. Держатели карты получают эксклюзивные скидки до 20% у 40+ партнёров в Москве: рестораны, чайные салоны, парикмахерские, логистика, перевод и фотоуслуги.'},
+        {q:'Как получить U Card?',a:'Выберите тариф (полгода или год), заполните базовую информацию и оплатите. Карта активируется автоматически. VIP-номер придёт по SMS, после чего можно сразу пользоваться скидками.'},
+        {q:'Где можно использовать U Card?',a:'U Card принимается у 40+ партнёров в Москве, включая Silk Road, Jiayan, Bamboo Restaurant, TEACHA, Beauty Express, Kung Fu Massage, All-Russia Air Cargo и других.'},
+        {q:'Как пользоваться электронной картой?',a:'При посещении партнёра откройте раздел «Моя карта» в личном кабинете U Card и покажите электронную карту. Партнёр отсканирует QR-код для применения скидки.'},
+        {q:'Можно ли вернуть деньги за карту?',a:'U Card — это виртуальный продукт. После активации возврат не предусмотрен. В исключительных случаях обратитесь в службу поддержки.'},
+        {q:'Как стать партнёром или послом U Card?',a:'Напишите на ucard.life@gmail.com, и наш менеджер свяжется с вами в течение 24 часов.'}
+    ]};
+L.en.faq = { tag:'FAQ', title:'Frequently <span class="gold">Asked Questions</span>', sub:'Everything you need to know about U Card',
+    items:[
+        {q:'What is U Card (俄优卡)?',a:'U Card is a discount card designed for Chinese students and expats living in Russia. Cardholders enjoy exclusive discounts of up to 20% OFF at 40+ partner merchants in Moscow, including restaurants, tea shops, hair salons, logistics, translation, and photography services.'},
+        {q:'How do I get a U Card?',a:'Choose between the half-year or annual plan, fill in your information, and complete payment. Your card activates automatically. You\'ll receive your VIP number via SMS and can start using discounts immediately.'},
+        {q:'Where can I use U Card?',a:'U Card is accepted at 40+ partner merchants across Moscow, including Silk Road Impression, Jiayan, Bamboo Restaurant, TEACHA, Beauty Express, Kung Fu Massage, All-Russia Air Cargo, and many more.'},
+        {q:'How do I use the digital card?',a:'Open the U Card member center to display your digital card when visiting a partner. The merchant scans the QR code to apply your discount. Some merchants may ask for your VIP number.'},
+        {q:'Can I get a refund for U Card?',a:'U Card is a virtual product. Refunds are not available after activation. For special circumstances, please contact customer support.'},
+        {q:'How do I become a partner or campus ambassador?',a:'Email us at ucard.life@gmail.com and our team will reach out within 24 hours.'}
+    ]};
+
+// ---- Pricing ----
+L.zh.pricing = { tag:'PRICING', title:'价格 <span class="gold">方案</span>', sub:'灵活选择，超低门槛，立刻开启莫斯科省钱之旅',
+    recommend:'推荐', half:{title:'半年卡 · 180 天权益',price:'19.8',features:['所有合作商户折扣权益','🎁 限时赠优惠特价'],btn:'选择半年卡'},
+    full:{title:'全年卡 · 365 天权益',price:'36.8',features:['所有合作商户折扣权益','🎁 限时赠优惠特价'],btn:'🔥 选择全年卡'} };
+L.ru.pricing = { tag:'ЦЕНЫ', title:'Тарифы <span class="gold">U Card</span>', sub:'Гибкий выбор, низкий порог — начните экономить в Москве',
+    recommend:'Рекомендуем', half:{title:'Полгода · 180 дней',price:'19.8',features:['Скидки у всех партнёров','🎁 Спеццена по акции'],btn:'Выбрать полгода'},
+    full:{title:'Год · 365 дней',price:'36.8',features:['Скидки у всех партнёров','🎁 Спеццена по акции'],btn:'🔥 Выбрать год'} };
+L.en.pricing = { tag:'PRICING', title:'Choose Your <span class="gold">Plan</span>', sub:'Flexible options, low barrier — start saving in Moscow today',
+    recommend:'Best Value', half:{title:'Half-Year · 180 Days',price:'19.8',features:['Discounts at all partner merchants','🎁 Limited-time special offer'],btn:'Choose Half-Year'},
+    full:{title:'Annual · 365 Days',price:'36.8',features:['Discounts at all partner merchants','🎁 Limited-time special offer'],btn:'🔥 Choose Annual'} };
+
+// ---- Recruit ----
+L.zh.recruit = { title:'🤝 合作 <span style="color:var(--gold)">招募</span>',
+    desc:'俄优卡正在快速扩展莫斯科合作版图。无论你是商家还是留学生，欢迎加入我们的生态。',
+    features:['零门槛入驻，免费成为合作商户','精准触达 2000+ 高消费力中国留学生','专属运营经理一对一对接'],
+    btn:'📩 成为合作商户',
+    cards:[
+        {title:'🏪 商户合作',desc:'面向莫斯科餐饮、服务、零售等各行业商家。加入俄优卡，即刻获得来自中国留学生群体的稳定客源与品牌曝光。',tag:'零费用 · 高曝光'},
+        {title:'🎓 校园大使',desc:'面向莫斯科各高校中国留学生。成为俄优卡校园推广大使，赚取推广佣金，积累运营与市场实战经验。',tag:'薪资 + 提成 · 校园大使聘书'}
+    ]};
+L.ru.recruit = { title:'🤝 <span style="color:var(--gold)">Партнёрство</span>',
+    desc:'U Card быстро расширяет сеть партнёров в Москве. Присоединяйтесь — будь вы владелец бизнеса или студент.',
+    features:['Бесплатное подключение','Доступ к 2000+ платёжеспособным китайским студентам','Персональный менеджер'],
+    btn:'📩 Стать партнёром',
+    cards:[
+        {title:'🏪 Для бизнеса',desc:'Рестораны, салоны, магазины — получите стабильный поток китайских клиентов с U Card.',tag:'Бесплатно · Высокая видимость'},
+        {title:'🎓 Посол U Card',desc:'Станьте послом U Card в своём вузе. Зарабатывайте комиссионные и получайте реальный опыт в маркетинге.',tag:'Оплата + бонусы · Сертификат'}
+    ]};
+L.en.recruit = { title:'🤝 Partner <span style="color:var(--gold)">Program</span>',
+    desc:'U Card is rapidly expanding across Moscow. Whether you\'re a merchant or a student, join our ecosystem.',
+    features:['Zero-cost onboarding, free to join as a partner','Reach 2,000+ high-spending Chinese students','Dedicated account manager'],
+    btn:'📩 Become a Partner',
+    cards:[
+        {title:'🏪 Merchant Partnership',desc:'Restaurants, salons, retail — join U Card and gain instant access to a steady stream of Chinese student customers.',tag:'Free · High Visibility'},
+        {title:'🎓 Campus Ambassador',desc:'Become a U Card ambassador at your university. Earn commissions and gain real-world marketing experience.',tag:'Salary + Commission · Certificate'}
+    ]};
+
+// ---- Bottom CTA ----
+L.zh.cta = { title:'立即加入 <span style="color:var(--gold)">2000+</span> 俄优卡持卡人',desc:'莫斯科 40+ 商家折扣，一张卡全搞定 — 你的留学省钱必备',btn:'🔥 立即申领俄优卡' };
+L.ru.cta = { title:'Присоединяйтесь к <span style="color:var(--gold)">2000+</span> держателям U Card',desc:'Более 40 партнёров, одна карта — ваш ключ к экономии в Москве',btn:'🔥 Оформить U Card' };
+L.en.cta = { title:'Join <span style="color:var(--gold)">2,000+</span> U Card Holders',desc:'40+ merchants, one card — your essential tool for saving in Moscow',btn:'🔥 Get U Card Now' };
+
+// ---- Merchants Page ----
+L.zh.merchantsPage = { title:'全部合作商户', sub:'莫斯科 40+ 优质商家，持俄优卡即享独家折扣' };
+L.ru.merchantsPage = { title:'Все партнёры', sub:'Более 40 партнёров в Москве — эксклюзивные скидки с U Card' };
+L.en.merchantsPage = { title:'All Partner Merchants', sub:'40+ quality merchants in Moscow — exclusive discounts with U Card' };
+
+// ---- Login ----
+L.zh.login = { title:'欢迎', sub:'登录俄优卡账户', memberTab:'会员登录', adminTab:'管理员登录',
+    vipLabel:'俄优卡 VIP 号', nameLabel:'用户名', adminUserLabel:'管理员账号', adminPassLabel:'密码', btn:'登录',
+    footer:'还没有俄优卡？<a href="#" onclick="applyCard();return false;">立即申领 →</a>' };
+L.ru.login = { title:'Добро пожаловать', sub:'Войдите в аккаунт U Card', memberTab:'Участник', adminTab:'Администратор',
+    vipLabel:'VIP-номер', nameLabel:'Имя пользователя', adminUserLabel:'Логин администратора', adminPassLabel:'Пароль', btn:'Войти',
+    footer:'Ещё нет карты? <a href="#" onclick="applyCard();return false;">Оформить →</a>' };
+L.en.login = { title:'Welcome', sub:'Sign in to your U Card account', memberTab:'Member Login', adminTab:'Admin Login',
+    vipLabel:'U Card VIP Number', nameLabel:'Username', adminUserLabel:'Admin Username', adminPassLabel:'Password', btn:'Sign In',
+    footer:'Don\'t have a card? <a href="#" onclick="applyCard();return false;">Apply Now →</a>' };
+
+// ---- Member ----
+L.zh.member = { greeting:'你好', sub:'俄优卡时刻陪你省遍莫斯科', logout:'退出登录', holder:'持卡人', validUntil:'有效期至',
+    saveCard:'📷 保存电子卡截图', savings:'累计节省', usage:'已使用次数', referrals:'推荐好友', recentTitle:'近期使用记录',
+    refTitle:'✨ 推荐好友得返现', refDesc:'每推荐一位好友成功办卡，立得 <strong>¥5</strong> 返现，多推多得！', copyBtn:'复制推荐链接' };
+L.ru.member = { greeting:'Здравствуйте', sub:'U Card помогает вам экономить по всей Москве', logout:'Выйти', holder:'Держатель',
+    validUntil:'Действителен до', saveCard:'📷 Сохранить карту', savings:'Всего сэкономлено', usage:'Использовано раз',
+    referrals:'Рекомендации', recentTitle:'История использования',
+    refTitle:'✨ Рекомендуйте друзьям', refDesc:'За каждого друга, оформившего карту — <strong>¥5</strong> бонус!', copyBtn:'Копировать ссылку' };
+L.en.member = { greeting:'Hello', sub:'U Card helps you save all across Moscow', logout:'Logout', holder:'Card Holder',
+    validUntil:'Valid Thru', saveCard:'📷 Save Card Image', savings:'Total Saved', usage:'Times Used',
+    referrals:'Referrals', recentTitle:'Recent Usage',
+    refTitle:'✨ Refer & Earn', refDesc:'Earn <strong>¥5</strong> for every friend who successfully signs up!', copyBtn:'Copy Link' };
+
+// ---- Admin ----
+L.zh.admin = { title:'📊 管理员后台', chartTitle:'📈 近7日新增会员趋势', memberMgmt:'🔍 会员信息管理',
+    allTypes:'全部卡类型', stats:['总会员数','本月新增','活跃会员（近30天）'],
+    tableHead:['姓名','VIP号','手机号','卡类型','办卡日期','有效期至','状态'], active:'有效', expired:'已过期' };
+L.ru.admin = { title:'📊 Панель администратора', chartTitle:'📈 Новые участники за 7 дней', memberMgmt:'🔍 Управление участниками',
+    allTypes:'Все типы', stats:['Всего участников','Новых за месяц','Активных (30 дней)'],
+    tableHead:['Имя','VIP','Телефон','Тип карты','Дата','Действ. до','Статус'], active:'Активна', expired:'Истекла' };
+L.en.admin = { title:'📊 Admin Dashboard', chartTitle:'📈 New Members (7 Days)', memberMgmt:'🔍 Member Management',
+    allTypes:'All Card Types', stats:['Total Members','New This Month','Active (30 Days)'],
+    tableHead:['Name','VIP','Phone','Card Type','Join Date','Valid Until','Status'], active:'Active', expired:'Expired' };
+
+// ---- Footer ----
+L.zh.footer = { desc:'专为在俄中国留学生与华人打造的消费折扣权益卡<br>实际办卡请关注「俄优卡」微信小程序',
+    copyright:'© 2025-2026 俄优卡 · All Rights Reserved', links:[
+        {label:'首页',action:"navigateTo('home')"},{label:'商户集',action:"navigateTo('merchants')"},
+        {label:'商务合作',action:"showToast('合作请发邮件至 ucard.life@gmail.com')"},{label:'联系我们',action:"showToast('客服微信：ucard_helper')"}
+    ]};
+L.ru.footer = { desc:'Дисконтная карта для китайских студентов и китайцев в России<br>Оформление через мини-программу WeChat «Ю карта»',
+    copyright:'© 2025-2026 Ю карта · Все права защищены', links:[
+        {label:'Главная',action:"navigateTo('home')"},{label:'Партнёры',action:"navigateTo('merchants')"},
+        {label:'Сотрудничество',action:"showToast('Пишите: ucard.life@gmail.com')"},{label:'Контакты',action:"showToast('WeChat: ucard_helper')"}
+    ]};
+L.en.footer = { desc:'Exclusive discount card for Chinese students and expats in Russia<br>Apply via the U Card WeChat mini-program',
+    copyright:'© 2025-2026 U Card · All Rights Reserved', links:[
+        {label:'Home',action:"navigateTo('home')"},{label:'Merchants',action:"navigateTo('merchants')"},
+        {label:'Partnership',action:"showToast('Email: ucard.life@gmail.com')"},{label:'Contact',action:"showToast('WeChat: ucard_helper')"}
+    ]};
+
+// ---- MERCHANT DATA (full) ----
+const ASSET_BASE = './images/';   // <-- 把所有图片放进这个目录即可，改目录只改这一行
+const APPLY_URL='https://shop185885872.youzan.com/wscuser/membercenter?kdt_id=185693704';
+const SHOP_HOME='https://shop185885872.youzan.com/v2/showcase/homepage?alias=wkR5bE4NwX';
+const FEAT='https://shop185885872.m.youzan.com/v2/feature/';
+const MERCHANT_LINKS={'丝路印象':FEAT+'tg5zCLmI4h','一品捞':FEAT+'BfWWLaols1','乐意餐厅':FEAT+'4nWduuqdkS','OK餐厅':FEAT+'Q2w0QO4zPg','MG华人美业':FEAT+'IORVc1Rx91','古鲁廖娃公证翻译':FEAT+'AGojzK6LxL','嘉宴':FEAT+'LsI4h1CIP5','困布利多摄影':FEAT+'lruB8ov9mm','丁丁烘焙坊':FEAT+'u8TWosqrgj','美遇·颜究所':FEAT+'eQS4As4Gth','金盛大酒店':FEAT+'f3dXJfZoDQ','丁丁融合菜':FEAT+'OiL4uzazqD','雀跃国际物流':FEAT+'1FqdqdIoGl','东北人家铁锅炖':FEAT+'zRqXMUdb5a'};
+function applyCard(){window.open(APPLY_URL,'_blank')}
+const MERCHANTS = [
+    // ===== 已有真实 Logo 的商户 =====
+    { id:1,  nameCn:'丝路印象', nameRu:'Шёлковый путь', nameEn:'Silk Road Impression', cat:'dining', discount:'8.5', descZh:'经典中餐，川菜粤菜一应俱全', descRu:'Классическая китайская кухня', descEn:'Classic Chinese cuisine — Sichuan & Cantonese', logo:'丝路印象.jpeg', bg:'#D6E4F0' },
+    { id:2,  nameCn:'嘉宴', nameRu:'Цзяянь', nameEn:'Jiayan Restaurant', cat:'dining', discount:'8', descZh:'高端中式宴请，聚会首选', descRu:'Китайский банкет премиум-класса', descEn:'Premium Chinese banquet dining', logo:'嘉宴.jpg', bg:'#E8DBA8' },
+    { id:3,  nameCn:'竹子餐厅', nameRu:'Бамбук', nameEn:'Bamboo Restaurant', cat:'dining', discount:'8.5', descZh:'清新中式简餐，快速美味', descRu:'Лёгкая китайская кухня', descEn:'Casual Chinese dining, fast & tasty', logo:'竹子餐厅6.png', bg:'#C8E6C9' },
+    { id:4,  nameCn:'丁丁融合菜', nameRu:'Дин Дин', nameEn:'Ding Ding Fusion', cat:'dining', discount:'9.5', descZh:'中西融合特色菜', descRu:'Китайско-европейская кухня', descEn:'Chinese-Western fusion cuisine', logo:'丁丁融合菜馆.jpeg', bg:'#FFF3E0' },
+    { id:5,  nameCn:'地锅大叔', nameRu:'Диго Дашу', nameEn:'Diguo Dashu', cat:'dining', discount:'9', descZh:'丰富中式锅物与煲类菜品', descRu:'Тушёное в котле по-китайски', descEn:'Hearty Chinese pot & stew dishes', logo:'地锅大叔.png', bg:'#FFECB3' },
+    { id:6,  nameCn:'东北人家铁锅炖', nameRu:'Северный котёл', nameEn:'Northeast Iron Pot', cat:'dining', discount:'9', descZh:'正宗东北大铁锅炖', descRu:'Настоящий северо-восточный котёл', descEn:'Authentic Northeast iron-pot stew', logo:'东北铁锅炖.png', bg:'#FFE0B2' },
+    { id:7,  nameCn:'一品捞火锅', nameRu:'Ипинь Лао', nameEn:'Yipin Hot Pot', cat:'dining', discount:'9', descZh:'川味牛油、菌汤、酸辣金汤多锅底', descRu:'Сычуаньский хого, разные бульоны', descEn:'Sichuan hot pot, multiple soup bases', logo:'一品捞.jpg', bg:'#FFCDD2' },
+    { id:8,  nameCn:'TEACHA', nameRu:'TEACHA', nameEn:'TEACHA', cat:'dining', discount:'9', descZh:'东方美学创意奶茶品牌', descRu:'Чайный бренд в восточном стиле', descEn:'Oriental-inspired creative tea brand', logo:'TEACHA.png', bg:'#D7CCC8' },
+    { id:9,  nameCn:'美丽直通车', nameRu:'Бьюти Экспресс', nameEn:'Beauty Express', cat:'service', discount:'8.8', descZh:'中国造型师主理华人理发店', descRu:'Парикмахерская с китайскими стилистами', descEn:'Salon led by Chinese stylists', logo:'美丽直通车.jpeg', bg:'#F8BBD0' },
+    { id:10, nameCn:'功夫推拿', nameRu:'Кунфу Spa', nameEn:'Kung Fu Spa', cat:'service', discount:'9', descZh:'中式推拿、拔罐刮痧、艾灸足疗', descRu:'Китайский массаж, банки, прижигание', descEn:'Chinese massage, cupping, moxibustion', logo:'功夫推拿.jpg', bg:'#BBDEFB' },
+    { id:11, nameCn:'热辣先生', nameRu:'Мистер Рэла', nameEn:'Mr. Rela', cat:'dining', discount:'9', descZh:'老式麻辣烫与炸串', descRu:'Малатан и жареные шпажки', descEn:'Malatang & fried skewers', logo:'热辣先生.jpg', bg:'#E1BEE7' },
+    { id:12, nameCn:'全俄空运', nameRu:'Вся Россия Карго', nameEn:'All-Russia Air Cargo', cat:'logistics', discount:'8.5', descZh:'中俄物流空运快递', descRu:'Грузоперевозки Китай-Россия', descEn:'China-Russia cargo & logistics', logo:'全俄空运.png', bg:'#B3E5FC' },
+    { id:13, nameCn:'困布利多摄影', nameRu:'Фотостудия', nameEn:'Photo Studio', cat:'entertainment', discount:'8.5', descZh:'专业旅拍人像摄影摄像', descRu:'Профессиональная фотосъёмка', descEn:'Professional travel & portrait photography', logo:'摄影工作室.png', bg:'#DCEDC8' },
+    { id:14, nameCn:'上海饭店', nameRu:'Шанхай', nameEn:'Shanghai Restaurant', cat:'dining', discount:'9', descZh:'高端中餐厅，配钢琴点歌设备', descRu:'Премиум-ресторан с роялем', descEn:'Upscale Chinese restaurant with live music', logo:'上海饭店.png', bg:'#FFD9CC' },
+    // ===== 简报中已有合作、待补 Logo 的商户（暂用品牌 Logo 占位）=====
+    { id:15, nameCn:'金盛大酒店', nameRu:'Цзиньшэн', nameEn:'Jinsheng Grand', cat:'dining', discount:'8', descZh:'商务宴请高端综合中餐厅', descRu:'Китайский ресторан для деловых встреч', descEn:'Grand Chinese dining for banquets', logo:'金盛大酒店.jpeg', bg:'#E8DBA8' },
+    { id:16, nameCn:'同福火锅', nameRu:'Тунфу Хого', nameEn:'Tongfu Hot Pot', cat:'dining', discount:'8', descZh:'老北京铜火锅炭火涮肉', descRu:'Пекинский медный самовар', descEn:'Old Beijing copper-pot hot pot', logo:'同福火锅.png', bg:'#FFCDD2' },
+    { id:17, nameCn:'聚缘火锅', nameRu:'Цзююань Хого', nameEn:'Juyuan Hot Pot', cat:'dining', discount:'8.5', descZh:'风味地道，汤底浓郁', descRu:'Насыщенный бульон, аутентичный вкус', descEn:'Rich broth, authentic flavour', logo:'聚缘火锅.png', bg:'#FFE0B2' },
+    { id:18, nameCn:'齐齐哈尔烤肉', nameRu:'Цицикар BBQ', nameEn:'Qiqihar BBQ', cat:'dining', discount:'9', descZh:'Primebeef 顶级牛肉烤肉', descRu:'Премиальное барбекю из говядины', descEn:'Premium beef barbecue', logo:'齐齐哈尔烤肉.jpg', bg:'#D7CCC8' },
+    { id:19, nameCn:'长城大饭店', nameRu:'Великая стена', nameEn:'Great Wall Restaurant', cat:'dining', discount:'8.8', descZh:'莫大附近地道传统中餐', descRu:'Традиционная кухня рядом с МГУ', descEn:'Traditional Chinese fare near MSU', logo:'长城大饭店.png', bg:'#C8E6C9' },
+    { id:20, nameCn:'鸳鸯火锅', nameRu:'Юаньян Хого', nameEn:'Yuanyang Hot Pot', cat:'dining', discount:'9', descZh:'中俄双语菜单，机器人送餐', descRu:'Двуязычное меню, робот-официант', descEn:'Bilingual menu, robot service', logo:'鸳鸯火锅.png', bg:'#FFD9CC' },
+    { id:21, nameCn:'OK餐厅', nameRu:'Ресторан OK', nameEn:'OK Restaurant', cat:'dining', discount:'9', descZh:'中式快餐家常味', descRu:'Китайский фастфуд', descEn:'Chinese fast & home-style food', logo:'OK餐厅.jpeg', bg:'#D6E4F0' },
+    { id:22, nameCn:'食味私厨', nameRu:'Шивэй', nameEn:'Shiwei Kitchen', cat:'dining', discount:'9', descZh:'滇味小馆私房菜', descRu:'Юньнаньская домашняя кухня', descEn:'Yunnan-style private kitchen', logo:'食味私厨.png', bg:'#DCEDC8' },
+    { id:23, nameCn:'乐意餐厅', nameRu:'Лэи', nameEn:'Leyi Restaurant', cat:'dining', discount:'9', descZh:'家常中餐，留子聚餐之选', descRu:'Домашняя кухня для компаний', descEn:'Home-style Chinese for groups', logo:'乐意餐厅.jpeg', bg:'#FFF3E0' },
+    { id:24, nameCn:'茶无双', nameRu:'Ча Ушуан', nameEn:'ChaWuShuang Tea', cat:'dining', discount:'8', descZh:'俄罗斯知名中国奶茶，20家门店', descRu:'Известный китайский чайный бренд', descEn:'Renowned Chinese tea brand, 20 stores', logo:'茶无双.png', bg:'#E1BEE7' },
+    { id:25, nameCn:'丁丁烘焙坊', nameRu:'Пекарня Дин Дин', nameEn:'Ding Ding Bakery', cat:'dining', discount:'9', descZh:'奶油巧克力慕斯蛋糕甜点', descRu:'Торты, муссы и десерты', descEn:'Cakes, mousse & desserts', logo:'丁丁烘焙坊.png', bg:'#F8BBD0' },
+    { id:26, nameCn:'有鲤酒吧', nameRu:'Бар Юли', nameEn:'Youli Bar', cat:'entertainment', discount:'9', descZh:'美酒美食微醺交友', descRu:'Бар с едой и напитками', descEn:'Bar with drinks, food & vibes', logo:'有鲤酒吧.png', bg:'#B3E5FC' },
+    { id:27, nameCn:'雀跃国际物流', nameRu:'Цюэюэ Логистика', nameEn:'Queyue Logistics', cat:'logistics', discount:'8.5', descZh:'跨境陆运高频刚需', descRu:'Трансграничные перевозки', descEn:'Cross-border ground logistics', logo:'雀跃国际物流.jpeg', bg:'#BBDEFB' },
+    { id:28, nameCn:'古鲁廖娃公证翻译', nameRu:'Нотариус и перевод', nameEn:'Notary & Translation', cat:'service', discount:'9', descZh:'俄联邦官方公证与文件翻译', descRu:'Официальный нотариат и перевод', descEn:'Official RF notary & document translation', logo:'古鲁廖娃公证翻译.jpeg', bg:'#D6E4F0' },
+    { id:29, nameCn:'美遇·颜究所', nameRu:'Мэйюй Бьюти', nameEn:'Meiyu Beauty Lab', cat:'service', discount:'8.8', descZh:'高端美甲美妆美容', descRu:'Премиум маникюр и косметология', descEn:'Premium nails, makeup & beauty', logo:'美遇.jpeg', bg:'#F8BBD0' },
+    { id:30, nameCn:'MG华人美业', nameRu:'MG Салон', nameEn:'MG Hair Salon', cat:'service', discount:'8', descZh:'纽约时尚风格沙龙', descRu:'Салон в нью-йоркском стиле', descEn:'New York-style hair salon', logo:'MG华人美发.jpeg', bg:'#E1BEE7' },
+    { id:31, nameCn:'颂SON花艺', nameRu:'SON Цветы', nameEn:'SON Floral', cat:'service', discount:'9', descZh:'定制花艺与鲜花礼盒', descRu:'Авторская флористика', descEn:'Custom floral design & gifts', logo:'俄优卡LOGO新.png', bg:'#DCEDC8' },
+    { id:32, nameCn:'唐潮舞艺', nameRu:'Танцы Танчао', nameEn:'Tangchao Dance', cat:'entertainment', discount:'9', descZh:'舞蹈培训与艺术演出', descRu:'Танцевальная студия', descEn:'Dance training & performance', logo:'唐朝舞社.jpeg', bg:'#FFECB3' },
+    { id:33, nameCn:'俄亚教育旅游翻译中心', nameRu:'Образование и перевод', nameEn:'Edu · Travel · Translation', cat:'service', discount:'9', descZh:'教育、旅游与商务翻译', descRu:'Образование, туры и перевод', descEn:'Education, travel & business translation', logo:'俄优卡LOGO新.png', bg:'#C8E6C9' }
+];
+
+// ---- OTHER DATA ----
+const CARD_TYPES = {zh:{'全年卡':'全年卡','半年卡':'半年卡'},ru:{'全年卡':'Годовая','半年卡':'Полугодовая'},en:{'全年卡':'Annual','半年卡':'Half-Year'}};
+const MEMBERS = [
+    { vip:'10001',name:'张三',phone:'79261112233',cardType:'全年卡',joinDate:'2025-09-01',validUntil:'2026-12-31',savings:1850,usageCount:23,referrals:3 },
+    { vip:'10002',name:'李四',phone:'79263334455',cardType:'半年卡',joinDate:'2026-01-15',validUntil:'2026-07-14',savings:680,usageCount:8,referrals:1 },
+    { vip:'10003',name:'王五',phone:'79265556677',cardType:'全年卡',joinDate:'2025-12-01',validUntil:'2026-11-30',savings:2100,usageCount:31,referrals:5 },
+    { vip:'10004',name:'赵六',phone:'79267778899',cardType:'半年卡',joinDate:'2026-03-10',validUntil:'2026-09-09',savings:420,usageCount:5,referrals:0 },
+    { vip:'10005',name:'孙七',phone:'79269990011',cardType:'全年卡',joinDate:'2026-02-20',validUntil:'2027-02-19',savings:1560,usageCount:18,referrals:2 },
+    { vip:'10006',name:'周八',phone:'79261113344',cardType:'半年卡',joinDate:'2026-04-01',validUntil:'2026-09-30',savings:320,usageCount:4,referrals:0 },
+    { vip:'10007',name:'吴九',phone:'79262224455',cardType:'全年卡',joinDate:'2025-10-15',validUntil:'2026-10-14',savings:2780,usageCount:42,referrals:7 },
+    { vip:'10008',name:'郑十',phone:'79263335566',cardType:'全年卡',joinDate:'2026-01-01',validUntil:'2026-12-31',savings:910,usageCount:12,referrals:1 },
+    { vip:'10009',name:'陈晓',phone:'79264446677',cardType:'半年卡',joinDate:'2026-05-01',validUntil:'2026-10-31',savings:150,usageCount:2,referrals:0 },
+    { vip:'10010',name:'林娜',phone:'79265557788',cardType:'全年卡',joinDate:'2025-11-20',validUntil:'2026-11-19',savings:3250,usageCount:48,referrals:10 }
+];
+const USAGE_RECORDS = [
+    { shop:'丝路印象',saved:128,date:'2026-05-28' },{ shop:'TEACHA',saved:45,date:'2026-05-25' },
+    { shop:'全俄空运',saved:380,date:'2026-05-22' },{ shop:'美丽直通车',saved:200,date:'2026-05-18' },
+    { shop:'嘉宴',saved:156,date:'2026-05-15' },{ shop:'竹子餐厅',saved:68,date:'2026-05-12' }
+];
+const NEW_MEMBER_TREND = [
+    { day:'05/24',count:4 },{ day:'05/25',count:6 },{ day:'05/26',count:3 },
+    { day:'05/27',count:8 },{ day:'05/28',count:5 },{ day:'05/29',count:7 },{ day:'05/30',count:2 }
+];
+const ADMIN_CREDENTIALS = { username:'admin',password:'admin123' };
+let currentUser = null;
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+let currentLang = 'zh';
+
+/* =============================================================
+   LANGUAGE SYSTEM
+   ============================================================= */
+function setLanguage(lang) {
+    currentLang = lang;
+    lsSet('ucard_lang', lang);
+    document.querySelector('html').lang = lang==='en'?'en':lang==='ru'?'ru':'zh-CN';
+    document.body.className = lang==='ru'?'lang-ru':lang==='en'?'lang-en':'';
+    document.getElementById('langLabel').textContent = L[lang].nav.lang;
+    document.querySelectorAll('.lang-dropdown button').forEach(b=>b.classList.toggle('active',b.dataset.lag===lang));
+    document.getElementById('langDropdown').classList.remove('open');
+
+    // Update data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const parts = key.split('.');
+        let val = L;
+        for (const p of parts) { if (val) val = val[p]; }
+        if (val && typeof val === 'string') {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = val;
+            } else {
+                el.innerHTML = val;
+            }
+        }
+    });
+
+    // Add placeholders for login inputs
+    const ph = {
+        zh: { memberVip:'请输入您的 VIP 号', memberName:'请输入您的用户名', adminUser:'请输入管理员账号', adminPass:'请输入密码' },
+        ru: { memberVip:'Введите VIP-номер', memberName:'Введите имя', adminUser:'Введите логин', adminPass:'Введите пароль' },
+        en: { memberVip:'Enter your VIP number', memberName:'Enter your username', adminUser:'Enter admin username', adminPass:'Enter password' }
+    };
+    const p = ph[lang];
+    document.getElementById('memberVip').placeholder = p.memberVip;
+    document.getElementById('memberName').placeholder = p.memberName;
+    document.getElementById('adminUser').placeholder = p.adminUser;
+    document.getElementById('adminPass').placeholder = p.adminPass;
+    document.getElementById('adminSearchInput').placeholder = lang==='zh'?'搜索姓名、VIP号…':lang==='ru'?'Поиск имени, VIP…':'Search name, VIP…';
+
+    // Re-render dynamic sections
+    renderTracker();
+    renderBenefits();
+    renderMCat();
+    renderCases();
+    renderFAQ();
+    renderPricing();
+    renderRecruit();
+    renderCta();
+    renderMapLegend();
+    renderFooter();
+    renderHeatmap();
+    renderMerchantsFull();
+    renderTeam();
+    updatePageTitle();
+    renderAdminStatic();
+    if (currentUser?.role==='member') renderMemberDashboard();
+    if (currentUser?.role==='admin') renderAdminDashboard();
+}
+
+function toggleLangDropdown() {
+    document.getElementById('langDropdown').classList.toggle('open');
+}
+// close on outside click
+document.addEventListener('click', function(e) {
+    const dd = document.getElementById('langDropdown');
+    if (!e.target.closest('.lang-selector') && dd.classList.contains('open')) dd.classList.remove('open');
+});
+
+function updatePageTitle() {
+    const titles = { zh:'俄优卡 U Card — U卡在手，莫城我有', ru:'Ю карта — Ю карта в руках — вся Москва твоя', en:'U Card — U Card in Hand, Moscow is Yours' };
+    document.title = titles[currentLang];
+}
+
+/* =============================================================
+   NAVIGATION
+   ============================================================= */
+function navigateTo(page) {
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const t=document.getElementById('page-'+page);
+    if(t) t.classList.add('active');
+    document.querySelectorAll('.nav-links a[data-page]').forEach(a=>a.classList.toggle('active',a.dataset.page===page));
+    document.getElementById('navLinks').classList.remove('open');
+    if(page==='merchants') renderMerchantsFull();
+    if(page==='team') renderTeam();
+    if(page==='member' && currentUser?.role==='member') renderMemberDashboard();
+    if(page==='admin' && currentUser?.role==='admin') renderAdminDashboard();
+    if(page==='login' && currentUser) {
+        if(currentUser.role==='member'){navigateTo('member');return}
+        if(currentUser.role==='admin'){navigateTo('admin');return}
+    }
+    if((page==='member'||page==='admin')&&!currentUser){navigateTo('login');showToast(L[currentLang].login?.title||'请先登录')}
+    window.scrollTo({top:0,behavior:'smooth'})
+}
+function toggleMobileMenu(){document.getElementById('navLinks').classList.toggle('open')}
+
+/* =============================================================
+   TOAST
+   ============================================================= */
+function showToast(m) {
+    const e=document.getElementById('toast');e.textContent=m;e.classList.add('show');
+    clearTimeout(e._timer);e._timer=setTimeout(()=>e.classList.remove('show'),2500)
+}
+
+/* =============================================================
+   RENDER SECTIONS
+   ============================================================= */
+function renderTracker() {
+    const g=document.getElementById('trackerGrid');
+    const d=L[currentLang].tracker.items;
+    g.innerHTML=d.map(i=>`<div class="tracker-item"><div class="tracker-num">${i.num}</div><div class="tracker-label">${i.label}</div><div class="tracker-sub">${i.sub}</div></div>`).join('')
+}
+
+function renderBenefits() {
+    const g=document.getElementById('benefitsGrid');
+    const d=L[currentLang].benefits.items;
+    g.innerHTML=d.map(b=>`<div class="benefit-card"><div class="benefit-icon">${b.icon}</div><h3>${b.title}</h3><p>${b.desc}</p><span class="tag">${b.tag}</span></div>`).join('')
+}
+
+function renderMapLegend() {
+    const g=document.getElementById('mapLegend');
+    const d=L[currentLang].map.legend;
+    g.innerHTML=d.map(i=>`<span class="map-legend-item">${i.cls?'<span class="dot '+i.cls+'"></span>':''}${i.txt}</span>`).join('')
+}
+
+function renderMCat() {
+    // filters
+    const mf=L[currentLang].mcat;
+    let fi=document.getElementById('mcatFilters');
+    fi.innerHTML=mf.filters.map(f=>`<button class="mcat-btn ${f.v==='all'?'active':''}" data-cat="${f.v}" onclick="filterMCatHome('${f.v}')">${f.l}</button>`).join('');
+    // grid
+    const g=document.getElementById('mcatGrid');
+    g.innerHTML=MERCHANTS.map(m=>createMcatCard(m)).join('')
+}
+
+let mcatHomeCat='all';
+function filterMCatHome(cat) {
+    mcatHomeCat=cat;
+    document.querySelectorAll('#mcatFilters .mcat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat||b.textContent.includes(cat)));
+    const g=document.getElementById('mcatGrid');
+    const f=cat==='all'?MERCHANTS:MERCHANTS.filter(m=>m.cat===cat);
+    g.innerHTML=f.map(m=>createMcatCard(m)).join('')
+}
+
+function shopLabel(cn){const x=MERCHANTS.find(m=>m.nameCn===cn);if(!x)return cn;return currentLang==='zh'?x.nameCn:currentLang==='ru'?x.nameRu:x.nameEn;}
+function createMcatCard(m) {
+    const lang=currentLang;
+    const name=lang==='zh'?m.nameCn:lang==='ru'?m.nameRu:m.nameEn;
+    const desc=lang==='zh'?m.descZh:lang==='ru'?m.descRu:m.descEn;
+    const catLabels={zh:{dining:'餐饮',service:'生活服务',entertainment:'休闲娱乐',logistics:'物流'},
+                     ru:{dining:'Ресторан',service:'Услуги',entertainment:'Развлечения',logistics:'Логистика'},
+                     en:{dining:'Dining',service:'Services',entertainment:'Entertainment',logistics:'Logistics'}};
+    const cl=catLabels[lang]||catLabels.zh;
+    const vipLabel=L[lang].mcat.vip||'VIP ONLY';
+    const initials=(lang==='zh'?m.nameCn:lang==='ru'?m.nameRu:m.nameEn).charAt(0);
+    const link=MERCHANT_LINKS[m.nameCn]||SHOP_HOME;
+    return `<div class="mcat-card" onclick="window.open('${link}','_blank')" style="cursor:pointer" title="${name}">
+        <div class="vip-tag">${vipLabel}</div>
+        <div class="discount-hero"><span class="d-pct">${m.discount}</span><span class="d-off">${currentLang==='ru'?'скидка':currentLang==='en'?'OFF':'折'}</span></div>
+        <div class="mcat-img-wrap" style="background:${m.bg||'var(--cobalt-light)'}">
+            <img src="${ASSET_BASE}${m.logo}" alt="${name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" loading="lazy">
+            <div class="fallback" style="display:none">${initials}</div>
+        </div>
+        <div class="mcat-body">
+            <div class="mcat-name">${name}</div>
+            <div class="mcat-name-ru">${lang==='en'?m.nameRu:m.nameEn}</div>
+            <div class="mcat-desc">${desc}</div>
+            <div class="mcat-meta"><span>${cl[m.cat]||m.cat}</span></div>
+        </div>
+    </div>`
+}
+
+function renderCases() {
+    const g=document.getElementById('casesGrid');
+    const d=L[currentLang].cases.items;
+    g.innerHTML=d.map(c=>`<div class="case-card"><div class="quote-icon">"</div><span class="case-saved">${c.saved}</span><div class="case-text">${c.text}</div><div class="case-author"><div class="avatar">${c.avatar}</div><div class="info"><div class="name">${c.name}</div><div class="school">${c.school}</div></div></div></div>`).join('')
+}
+
+function renderFAQ() {
+    const g=document.getElementById('faqList');
+    const d=L[currentLang].faq.items;
+    g.innerHTML=d.map((f,i)=>`<div class="faq-item"><button class="faq-q" onclick="toggleFAQ(${i})">${f.q}<span class="faq-icon">+</span></button><div class="faq-a">${f.a}</div></div>`).join('')
+}
+let currentFaq=-1;
+function toggleFAQ(i) {
+    const items=document.querySelectorAll('.faq-item');
+    if(currentFaq===i){items[i].classList.remove('open');currentFaq=-1;return}
+    items.forEach((item,j)=>{item.classList.toggle('open',j===i)});currentFaq=i
+}
+
+function renderPricing() {
+    const g=document.getElementById('pricingGrid');
+    const d=L[currentLang].pricing;
+    g.innerHTML=`<div class="pricing-card">
+        <div class="price"><span class="unit">¥</span>${d.half.price}<span style="font-size:28px"></span></div>
+        <div class="price-label">${d.half.title}</div>
+        <ul class="features">${d.half.features.map(f=>'<li>'+f+'</li>').join('')}</ul>
+        <a href="#" onclick="applyCard();return false;" class="btn btn-outline">${d.half.btn}</a>
+    </div>
+    <div class="pricing-card featured" data-recommend="${d.recommend}">
+        <div class="price"><span class="unit">¥</span>${d.full.price}<span style="font-size:28px"></span></div>
+        <div class="price-label">${d.full.title}</div>
+        <ul class="features">${d.full.features.map(f=>'<li>'+f+'</li>').join('')}</ul>
+        <a href="#" onclick="applyCard();return false;" class="btn btn-red">${d.full.btn}</a>
+    </div>`
+}
+
+function renderRecruit() {
+    const g=document.getElementById('recruitSection');
+    const d=L[currentLang].recruit;
+    g.innerHTML=`<div class="recruit-left"><h2>${d.title}</h2><p>${d.desc}</p>
+        <ul class="recruit-features">${d.features.map(f=>'<li>'+f+'</li>').join('')}</ul>
+        <a href="https://shop185885872.m.youzan.com/v2/feature/Y23mRMcb7T" target="_blank" rel="noopener noreferrer" class="btn btn-gold">${d.btn}</a></div>
+        <div class="recruit-right">${d.cards.map(c=>`<div class="recruit-card"><h3>${c.title}</h3><p>${c.desc}</p><span class="tag">${c.tag}</span></div>`).join('')}</div>`
+}
+
+function renderCta() {
+    const g=document.getElementById('bottomCta');
+    const d=L[currentLang].cta;
+    g.innerHTML=`<h2 style="font-size:34px;font-weight:800;margin-bottom:12px">${d.title}</h2>
+        <p style="font-size:16px;opacity:0.8;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto">${d.desc}</p>
+        <a href="#" onclick="applyCard();return false;" class="btn btn-red" style="font-size:17px;padding:16px 48px">${d.btn}</a>`
+}
+
+function renderFooter() {
+    const g=document.getElementById('footerLinks');
+    const d=L[currentLang].footer.links;
+    g.innerHTML=d.map(l=>`<a href="#" onclick="${l.action};return false">${l.label}</a>`).join('')
+}
+
+function renderAdminStatic() {
+    const d=L[currentLang].admin;
+    document.getElementById('adminStats').innerHTML=d.stats.map(s=>`<div class="admin-stat-card"><div class="asc-label">${s}</div><div class="asc-num">--</div><div class="asc-change">—</div></div>`).join('');
+    document.getElementById('adminTableHead').innerHTML=d.tableHead.map(h=>`<th>${h}</th>`).join('');
+    document.querySelector('#adminCardFilter option[value="all"]').textContent=d.allTypes;
+}
+
+/* =============================================================
+   MERCHANTS FULL PAGE
+   ============================================================= */
+let mcatAllCat='all';
+function renderMerchantsFull() {
+    const g=document.getElementById('mcatGridAll');
+    const mf=L[currentLang].mcat;
+    // filters
+    let fi=document.getElementById('mcatFiltersAll');
+    if(fi) fi.innerHTML=mf.filters.map(f=>`<button class="mcat-btn ${f.v==='all'?'active':''}" data-cat="${f.v}" onclick="filterMCatAllPage('${f.v}')">${f.l}</button>`).join('');
+    // grid
+    const s=document.getElementById('mcatSearch')?.value?.toLowerCase()||'';
+    let f=MERCHANTS;
+    if(mcatAllCat!=='all') f=f.filter(m=>m.cat===mcatAllCat);
+    if(s) f=f.filter(m=>m.nameCn.includes(s)||m.nameRu.toLowerCase().includes(s)||m.nameEn.toLowerCase().includes(s));
+    g.innerHTML=f.length?f.map(m=>createMcatCard(m)).join(''):'<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--text-light)">'+(currentLang==='zh'?'暂无匹配商户':currentLang==='ru'?'Партнёры не найдены':'No merchants found')+'</div>'
+}
+function filterMCatAllPage(cat) {
+    if(cat){mcatAllCat=cat;document.querySelectorAll('#mcatFiltersAll .mcat-btn').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat||b.textContent.includes(cat)))}
+    renderMerchantsFull()
+}
+
+/* =============================================================
+   TEAM
+   ============================================================= */
+function renderTeam() {
+    const d=L[currentLang].team;
+    const brandGrid=document.getElementById('teamGridBrand');
+    const marketGrid=document.getElementById('teamGridMarket');
+    if (brandGrid) {
+        brandGrid.innerHTML=d.members.filter(m=>m.dept==='brand').map(m=>`
+            <div class="team-card"><div class="team-avatar">${m.avatar}</div><span class="t-badge brand">${d.brand}</span><div class="t-name">${m.name}</div><div class="t-role">${m.role}</div><div class="t-bio">${m.bio}</div></div>
+        `).join('');
+    }
+    if (marketGrid) {
+        marketGrid.innerHTML=d.members.filter(m=>m.dept==='market').map(m=>`
+            <div class="team-card"><div class="team-avatar">${m.avatar}</div><span class="t-badge market">${d.marketing}</span><div class="t-name">${m.name}</div><div class="t-role">${m.role}</div><div class="t-bio">${m.bio}</div></div>
+        `).join('');
+    }
+}
+
+/* =============================================================
+   LOGIN
+   ============================================================= */
+let loginTab='member';
+function switchLoginTab(tab){
+    loginTab=tab;
+    document.querySelectorAll('.login-tab').forEach(t=>t.classList.toggle('active',t.textContent.includes(tab==='member'?L[currentLang].login.memberTab.slice(0,2):'Admin')));
+    document.getElementById('memberLoginForm').classList.toggle('hidden',tab!=='member');
+    document.getElementById('adminLoginForm').classList.toggle('hidden',tab!=='admin');
+    document.getElementById('loginError').classList.remove('show')
+}
+function showLoginError(m){const e=document.getElementById('loginError');e.textContent=m;e.classList.add('show')}
+function memberLogin(){
+    const vip=document.getElementById('memberVip').value.trim(),name=document.getElementById('memberName').value.trim();
+    if(!vip||!name) return showLoginError(currentLang==='zh'?'请输入 VIP 号和用户名':currentLang==='ru'?'Введите VIP-номер и имя':'Enter VIP number and username');
+    const m=MEMBERS.find(m=>m.vip===vip&&m.name===name);
+    if(!m) return showLoginError(currentLang==='zh'?'VIP 号或用户名错误':currentLang==='ru'?'Неверный VIP или имя':'Invalid VIP or username');
+    currentUser={role:'member',data:m};renderMemberDashboard();navigateTo('member');
+    showToast(currentLang==='zh'?'登录成功':currentLang==='ru'?'Вход выполнен':'Login successful');
+    document.getElementById('loginError').classList.remove('show')
+}
+function adminLogin(){
+    const u=document.getElementById('adminUser').value.trim(),p=document.getElementById('adminPass').value.trim();
+    if(!u||!p) return showLoginError(currentLang==='zh'?'请输入账号和密码':currentLang==='ru'?'Введите логин и пароль':'Enter username and password');
+    if(u!==ADMIN_CREDENTIALS.username||p!==ADMIN_CREDENTIALS.password) return showLoginError(currentLang==='zh'?'账号或密码错误':currentLang==='ru'?'Неверный логин или пароль':'Invalid credentials');
+    currentUser={role:'admin',data:{}};renderAdminDashboard();navigateTo('admin');
+    showToast(currentLang==='zh'?'管理员登录成功':currentLang==='ru'?'Вход администратора выполнен':'Admin login successful');
+    document.getElementById('loginError').classList.remove('show')
+}
+function logout(){
+    currentUser=null;
+    ['memberVip','memberName','adminUser','adminPass'].forEach(id=>{const el=document.getElementById(id);if(el)el.value=''});
+    navigateTo('home');showToast(currentLang==='zh'?'已退出登录':currentLang==='ru'?'Выход выполнен':'Logged out')
+}
+
+/* =============================================================
+   MEMBER DASHBOARD
+   ============================================================= */
+function renderMemberDashboard(){
+    const m=currentUser.data;
+    document.getElementById('memberGreetingName').textContent=m.name;
+    document.getElementById('cardHolderName').textContent=m.name;
+    document.getElementById('cardVipDisplay').textContent='VIP '+m.vip;
+    document.getElementById('cardTypeTag').textContent=(CARD_TYPES[currentLang]&&CARD_TYPES[currentLang][m.cardType])||m.cardType;
+    document.getElementById('cardValidUntil').textContent=m.validUntil;
+    document.getElementById('totalSavings').textContent='¥'+m.savings;
+    document.getElementById('usageCount').textContent=m.usageCount+' '+(currentLang==='zh'?'次':currentLang==='ru'?'раз':'times');
+    document.getElementById('referralCount').textContent=m.referrals+' '+(currentLang==='zh'?'人':currentLang==='ru'?'чел':'people');
+    document.getElementById('refLinkInput').value='https://ucard.ru/refer?ref='+m.vip;
+    document.getElementById('refDesc').innerHTML=L[currentLang].member.refDesc;
+    const list=document.getElementById('usageList');
+    list.innerHTML=USAGE_RECORDS.map(r=>`<div class="usage-item"><div><span class="shop">${shopLabel(r.shop)}</span><span class="date"> · ${r.date}</span></div><span class="saved">${currentLang==='zh'?'省 ¥':'Скидка '}¥${r.saved}</span></div>`).join('')
+}
+function saveCardImage(){showToast(currentLang==='zh'?'已保存电子卡截图（演示功能）':currentLang==='ru'?'Карта сохранена (демо)':'Card image saved (demo)')}
+function copyRefLink(){
+    const inp=document.getElementById('refLinkInput');inp.select();inp.setSelectionRange(0,99999);
+    try{navigator.clipboard.writeText(inp.value);showToast(currentLang==='zh'?'链接已复制！':currentLang==='ru'?'Ссылка скопирована!':'Link copied!')}catch{showToast(currentLang==='zh'?'请手动复制':currentLang==='ru'?'Скопируйте вручную':'Copy manually')}
+}
+
+/* =============================================================
+   ADMIN DASHBOARD
+   ============================================================= */
+function renderAdminDashboard(){
+    const a=L[currentLang].admin;
+    const stats = document.getElementById('adminStats');
+    if (stats) {
+        stats.innerHTML=a.stats.map((s,i)=>{
+            const vals=[MEMBERS.length, MEMBERS.filter(m=>m.joinDate>='2026-05-01').length, Math.round(MEMBERS.length*0.763)];
+            const changes=['↑ 8.2%','∅ 5/день','76.3%'];
+            return `<div class="admin-stat-card"><div class="asc-label">${s}</div><div class="asc-num">${vals[i]}</div><div class="asc-change">${changes[i]}</div></div>`
+        }).join('')
+    }
+    const chart=document.getElementById('barChart');
+    if (chart) {
+        const max=Math.max(...NEW_MEMBER_TREND.map(d=>d.count));
+        chart.innerHTML=NEW_MEMBER_TREND.map(d=>`<div class="bar-item"><div class="bar-value">${d.count}</div><div class="bar" style="height:${Math.max(4,(d.count/max)*100)}%"></div><div class="bar-label">${d.day}</div></div>`).join('')
+    }
+    adminSearchMembers()
+}
+function adminSearchMembers(){
+    const q=document.getElementById('adminSearchInput').value.trim().toLowerCase(),cf=document.getElementById('adminCardFilter').value;
+    let f=MEMBERS;
+    if(q) f=f.filter(m=>m.name.includes(q)||m.vip.includes(q)||m.phone.includes(q));
+    if(cf!=='all') f=f.filter(m=>m.cardType===cf);
+    const a=L[currentLang].admin;
+    document.getElementById('searchResultCount').textContent=(currentLang==='zh'?'共 ':'')+f.length+(currentLang==='ru'?' результатов':' results');
+    const now='2026-05-30';
+    const tbody=document.getElementById('adminMemberTableBody');
+    if(tbody) tbody.innerHTML=f.map(m=>{const act=m.validUntil>=now;return `<tr><td><strong>${m.name}</strong></td><td>${m.vip}</td><td>${m.phone}</td><td>${(CARD_TYPES[currentLang]&&CARD_TYPES[currentLang][m.cardType])||m.cardType}</td><td>${m.joinDate}</td><td>${m.validUntil}</td><td><span class="status-badge ${act?'active':'expired'}">${act?a.active:a.expired}</span></td></tr>`}).join('')
+}
+
+/* =============================================================
+   SCROLL REVEAL
+   ============================================================= */
+function observeReveal(){
+    const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.1});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))
+}
+
+/* =============================================================
+   INIT
+   ============================================================= */
+function animateCounts(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.querySelectorAll('#trackerGrid .tracker-num').forEach(function(el){
+    var raw=el.textContent.trim();var mm=raw.match(/^(\D*)([\d,]+)(.*)$/);if(!mm)return;
+    var pre=mm[1],suf=mm[3];var target=parseInt(mm[2].replace(/,/g,''),10);if(isNaN(target))return;
+    var dur=1100,t0=performance.now();
+    function tick(now){var pr=Math.min(1,(now-t0)/dur);var v=Math.round(target*(1-Math.pow(1-pr,3)));el.textContent=pre+v.toLocaleString()+suf;if(pr<1)requestAnimationFrame(tick)}
+    requestAnimationFrame(tick);
+  });
+}
+function spawnSparks(){
+  var hero=document.querySelector('.hero');if(!hero)return;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  for(var i=0;i<14;i++){var s=document.createElement('div');s.className='hero-spark';var sz=2+Math.random()*5;s.style.width=s.style.height=sz+'px';s.style.left=(Math.random()*100)+'%';s.style.bottom=(Math.random()*60)+'%';s.style.animationDuration=(6+Math.random()*7)+'s';s.style.animationDelay=(-Math.random()*8)+'s';hero.appendChild(s)}
+}
+function initFancy(){
+  spawnSparks();
+  var onScroll=function(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;var pr=max>0?(h.scrollTop/max)*100:0;var el=document.getElementById('scrollProgress');if(el)el.style.width=pr+'%'};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var tr=document.querySelector('.savings-tracker');
+  if(tr){var done=false;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!done){done=true;animateCounts()}})},{threshold:.3});io.observe(tr)}
+}
+function renderHeatmap(){
+  var wrap=document.getElementById('mapPins'); if(!wrap)return;
+  var HOT={'丝路印象':1,'嘉宴':1,'竹子餐厅':1,'TEACHA':1,'一品捞':1,'金盛大酒店':1,'上海饭店':1,'东北人家铁锅炖':1};
+  var FIX={'TEACHA':[50,46],'丝路印象':[43,37],'嘉宴':[59,43],'竹子餐厅':[39,54],'一品捞':[52,58],'金盛大酒店':[24,15],'上海饭店':[66,87],'东北人家铁锅炖':[84,29],'全俄空运':[80,63],'雀跃国际物流':[15,40],'古鲁廖娃公证翻译':[33,69],'美遇·颜究所':[27,75],'OK餐厅':[48,72],'乐意餐厅':[36,62],'MG华人美业':[19,57],'丁丁烘焙坊':[88,41]};
+  var lang=currentLang;
+  wrap.innerHTML=MERCHANTS.map(function(m,i){
+    var pp=FIX[m.nameCn];
+    if(!pp){var a=i*2.39996,r=18+(i%4)*8;pp=[Math.max(11,Math.min(89,50+Math.cos(a)*r*1.1)),Math.max(15,Math.min(85,50+Math.sin(a)*r*0.78))];}
+    var hot=HOT[m.nameCn]?'hot':'';
+    var name=lang==='zh'?m.nameCn:lang==='ru'?m.nameRu:m.nameEn;
+    var off=lang==='zh'?'折':lang==='ru'?'скидка':'OFF';
+    var link=MERCHANT_LINKS[m.nameCn]||SHOP_HOME;
+    return '<div class="map-pin '+hot+'" style="left:'+pp[0]+'%;top:'+pp[1]+'%" onclick="window.open(\''+link+'\',\'_blank\')"><div class="pin-label">\ud83d\udccd '+name+' <b>'+m.discount+off+'</b></div><div class="pin-dot"></div></div>';
+  }).join('');
+}
+document.addEventListener('DOMContentLoaded',function(){
+    renderFooter();
+    renderAdminStatic();
+    // set language
+    document.querySelectorAll('.lang-dropdown button').forEach(b=>b.dataset.lag=b.dataset.lang);
+    setLanguage(currentLang);
+    renderMerchantsFull();
+
+    // Enter key for login
+    document.getElementById('memberName')?.addEventListener('keydown',function(e){if(e.key==='Enter')memberLogin()});
+    document.getElementById('adminPass')?.addEventListener('keydown',function(e){if(e.key==='Enter')adminLogin()});
+
+    // Close mobile menu on outside click
+    document.addEventListener('click',function(e){
+        const n=document.getElementById('navLinks'),h=document.getElementById('hamburger');
+        if(n.classList.contains('open')&&!n.contains(e.target)&&!h.contains(e.target)) n.classList.remove('open')
+    });
+
+    // Add reveal class
+    document.querySelectorAll('.benefits-grid, .cases-grid, .faq-list, .pricing-grid, .recruit-inner, .tracker-grid').forEach(el=>el.classList.add('reveal'));
+    observeReveal();
+
+    // Init card filter UIs
+    renderMCat();
+    initFancy();
+});
+</script>
+<!-- HERO_FORCE_INTERACTION_SCRIPT_START -->
+<script>
+(function () {
+    function initHeroForceInteraction() {
+        var hero = document.querySelector('#hero') || document.querySelector('.hero');
+        if (!hero) return;
+
+        var heroRight = hero.querySelector('.hero-right') || hero;
+        var img =
+            hero.querySelector('img.hero-art') ||
+            hero.querySelector('img[src*="去背景的白盒子"]') ||
+            hero.querySelector('img[src*="the white box"]');
+
+        if (!img) return;
+
+        var url = 'https://shop185885872.youzan.com/wscuser/membercenter?kdt_id=185693704';
+
+        var link = img.closest('a');
+
+        if (!link) {
+            link = document.createElement('a');
+            img.parentNode.insertBefore(link, img);
+            link.appendChild(img);
+        }
+
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.classList.add('hero-art-link');
+        link.setAttribute('aria-label', '立即申领俄优卡 VIP');
+
+        hero.style.position = 'relative';
+        hero.style.overflow = 'hidden';
+
+        var inner = hero.querySelector('.hero-inner');
+        if (inner) {
+            inner.style.position = 'relative';
+            inner.style.zIndex = '3';
+        }
+
+        heroRight.style.position = 'relative';
+        heroRight.style.overflow = 'visible';
+        heroRight.style.zIndex = '4';
+
+        link.style.display = 'inline-block';
+        link.style.position = 'relative';
+        link.style.zIndex = '99';
+        link.style.cursor = 'pointer';
+        link.style.transformOrigin = 'center center';
+        link.style.transition = 'transform .34s cubic-bezier(.22, 1, .36, 1)';
+        link.style.willChange = 'transform';
+
+        img.style.display = 'block';
+        img.style.pointerEvents = 'none';
+        img.style.willChange = 'transform';
+        img.style.transform = 'translate3d(0,0,0)';
+        img.style.filter = 'drop-shadow(0 30px 58px rgba(2,12,40,.46))';
+
+        link.addEventListener('mouseenter', function () {
+            link.style.transform = 'translate3d(0,-16px,0) scale3d(1.33,1.33,1) rotate(-1deg)';
+        });
+
+        link.addEventListener('mouseleave', function () {
+            link.style.transform = 'translate3d(0,0,0) scale3d(1,1,1) rotate(0deg)';
+        });
+
+        link.addEventListener('mousedown', function () {
+            link.style.transform = 'translate3d(0,-8px,0) scale3d(1.22,1.22,1) rotate(-0.5deg)';
+        });
+
+        link.addEventListener('mouseup', function () {
+            link.style.transform = 'translate3d(0,-16px,0) scale3d(1.33,1.33,1) rotate(-1deg)';
+        });
+
+        if (!document.getElementById('hero-force-fx-style')) {
+            var style = document.createElement('style');
+            style.id = 'hero-force-fx-style';
+            style.textContent = `
+                #hero .hero-force-aura,
+                #hero .hero-force-dust,
+                #hero .hero-force-sweep {
+                    pointer-events: none;
+                    position: absolute;
+                }
+
+                #hero .hero-force-aura {
+                    width: 620px;
+                    height: 620px;
+                    right: 6%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    border-radius: 50%;
+                    background: radial-gradient(circle, rgba(77,138,255,.38) 0%, rgba(38,92,220,.16) 36%, transparent 68%);
+                    filter: blur(22px);
+                    opacity: .86;
+                    z-index: 1;
+                    animation: heroAuraPulse 7s ease-in-out infinite alternate;
+                }
+
+                #hero .hero-force-dust {
+                    width: 520px;
+                    height: 420px;
+                    right: 8%;
+                    top: 18%;
+                    z-index: 2;
+                    background:
+                        radial-gradient(circle at 18% 22%, rgba(235,220,166,.78) 0 4px, transparent 5px),
+                        radial-gradient(circle at 68% 12%, rgba(235,220,166,.62) 0 3px, transparent 4px),
+                        radial-gradient(circle at 82% 52%, rgba(235,220,166,.7) 0 4px, transparent 5px),
+                        radial-gradient(circle at 36% 76%, rgba(255,255,255,.46) 0 2px, transparent 3px);
+                    filter: drop-shadow(0 0 10px rgba(235,220,166,.5));
+                    animation: heroGoldDrift 9s ease-in-out infinite alternate;
+                }
+
+                @keyframes heroAuraPulse {
+                    from { transform: translateY(-50%) scale(.96); opacity: .68; }
+                    to { transform: translateY(-52%) scale(1.06); opacity: .95; }
+                }
+
+                @keyframes heroGoldDrift {
+                    from { transform: translate3d(0,0,0) rotate(0deg); opacity: .62; }
+                    to { transform: translate3d(-14px,10px,0) rotate(3deg); opacity: .92; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        if (!hero.querySelector('.hero-force-aura')) {
+            var aura = document.createElement('span');
+            aura.className = 'hero-force-aura';
+
+            var dust = document.createElement('span');
+            dust.className = 'hero-force-dust';
+
+            heroRight.insertBefore(aura, heroRight.firstChild);
+            heroRight.insertBefore(dust, heroRight.firstChild);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeroForceInteraction);
+    } else {
+        initHeroForceInteraction();
+    }
+})();
+</script>
+<!-- HERO_FORCE_INTERACTION_SCRIPT_END -->
+<!-- TEAM_LEGAL_CTA_RUNTIME_PATCH_START -->
+<script>
+(function () {
+    var USE_URL = 'https://shop185885872.m.youzan.com/v2/feature/4p7lCpDrbT';
+
+    function getLang() {
+        try {
+            if (typeof currentLang !== 'undefined' && currentLang) return currentLang;
+        } catch (e) {}
+        return 'zh';
+    }
+
+    function getLegalText() {
+        var lang = getLang();
+
+        if (lang === 'ru') {
+            return {
+                dept: 'Юридический отдел',
+                role: 'GC / Директор по правовым вопросам',
+                bio: 'Отвечает за юридическое сопровождение U Card.',
+                use: 'Как пользоваться U Card'
+            };
+        }
+
+        if (lang === 'en') {
+            return {
+                dept: 'Legal Department',
+                role: 'GC Legal Director',
+                bio: 'Responsible for U Card legal affairs.',
+                use: 'How to Use U Card'
+            };
+        }
+
+        return {
+            dept: '法务部',
+            role: 'GC 法务总监',
+            bio: '负责俄优卡法务相关工作。',
+            use: '俄优卡使用方式'
+        };
+    }
+
+    function ensureLegalDept() {
+        var marketDept = document.getElementById('teamDeptMarket');
+        if (!marketDept) return null;
+
+        var legalDept = document.getElementById('teamDeptLegal');
+
+        if (!legalDept) {
+            legalDept = document.createElement('div');
+            legalDept.className = 'team-dept';
+            legalDept.id = 'teamDeptLegal';
+            legalDept.style.marginTop = '48px';
+
+            legalDept.innerHTML =
+                '<h3 class="team-dept-title" id="teamLegalTitle" style="font-size:22px;font-weight:700;color:var(--cobalt);margin-bottom:24px;padding-bottom:8px;border-bottom:2px solid var(--gold)">法务部</h3>' +
+                '<div class="team-grid" id="teamGridLegal"></div>';
+
+            marketDept.insertAdjacentElement('afterend', legalDept);
+        }
+
+        return legalDept;
+    }
+
+    function renderLegalTeam() {
+        var legalDept = ensureLegalDept();
+        if (!legalDept) return;
+
+        var t = getLegalText();
+
+        var title = document.getElementById('teamLegalTitle');
+        if (title) title.textContent = t.dept;
+
+        var grid = document.getElementById('teamGridLegal');
+        if (!grid) return;
+
+        grid.innerHTML =
+            '<div class="team-card">' +
+                '<div class="team-avatar">VL</div>' +
+                '<span class="t-badge legal">' + t.dept + '</span>' +
+                '<div class="t-name">Valentina</div>' +
+                '<div class="t-role">' + t.role + '</div>' +
+                '<div class="t-bio">' + t.bio + '</div>' +
+            '</div>';
+    }
+
+    function addUseButton() {
+        var cta = document.getElementById('bottomCta');
+        if (!cta) return;
+
+        var old = cta.querySelector('.cta-use-btn');
+        if (old) old.remove();
+
+        var redBtn = cta.querySelector('.btn-red');
+        if (!redBtn) return;
+
+        var t = getLegalText();
+
+        var btn = document.createElement('a');
+        btn.href = USE_URL;
+        btn.target = '_blank';
+        btn.rel = 'noopener noreferrer';
+        btn.className = 'btn btn-white-outline cta-use-btn';
+        btn.textContent = t.use;
+        btn.style.fontSize = '17px';
+        btn.style.padding = '16px 42px';
+        btn.style.marginLeft = '16px';
+
+        redBtn.insertAdjacentElement('afterend', btn);
+    }
+
+    function patchOriginalFunctions() {
+        try {
+            if (typeof renderTeam === 'function' && !renderTeam.__legalV2Patched) {
+                var oldRenderTeam = renderTeam;
+                renderTeam = function () {
+                    oldRenderTeam();
+                    renderLegalTeam();
+                };
+                renderTeam.__legalV2Patched = true;
+            }
+        } catch (e) {}
+
+        try {
+            if (typeof renderCta === 'function' && !renderCta.__useV2Patched) {
+                var oldRenderCta = renderCta;
+                renderCta = function () {
+                    oldRenderCta();
+                    addUseButton();
+                };
+                renderCta.__useV2Patched = true;
+            }
+        } catch (e) {}
+
+        try {
+            if (typeof setLanguage === 'function' && !setLanguage.__legalV2Patched) {
+                var oldSetLanguage = setLanguage;
+                setLanguage = function (lang) {
+                    oldSetLanguage(lang);
+                    setTimeout(function () {
+                        renderLegalTeam();
+                        addUseButton();
+                    }, 0);
+                };
+                setLanguage.__legalV2Patched = true;
+            }
+        } catch (e) {}
+    }
+
+    function install() {
+        patchOriginalFunctions();
+        renderLegalTeam();
+        addUseButton();
+    }
+
+    if (!document.getElementById('team-legal-cta-patch-style')) {
+        var style = document.createElement('style');
+        style.id = 'team-legal-cta-patch-style';
+        style.textContent =
+            '.team-card .t-badge.legal {' +
+                'background: rgba(201,168,76,.16);' +
+                'color: var(--gold-dark);' +
+            '}' +
+            '#teamGridLegal {' +
+                'display: grid;' +
+                'grid-template-columns: repeat(2, minmax(0, 1fr));' +
+                'gap: 24px;' +
+            '}' +
+            '#teamGridLegal .team-card {' +
+                'max-width: none;' +
+            '}' +
+            '#bottomCta .cta-use-btn {' +
+                'color: var(--white) !important;' +
+                'box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.48);' +
+            '}' +
+            '#bottomCta .cta-use-btn:hover {' +
+                'background: rgba(255,255,255,.14);' +
+            '}' +
+            '@media (max-width: 768px) {' +
+                '#teamGridLegal {' +
+                    'grid-template-columns: 1fr;' +
+                '}' +
+                '#bottomCta .cta-use-btn {' +
+                    'margin-left: 0 !important;' +
+                    'margin-top: 12px;' +
+                    'display: inline-flex;' +
+                    'justify-content: center;' +
+                    'width: min(320px, 100%);' +
+                '}' +
+            '}';
+        document.head.appendChild(style);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', install);
+    } else {
+        install();
+    }
+
+    setTimeout(install, 300);
+})();
+</script>
+<!-- TEAM_LEGAL_CTA_RUNTIME_PATCH_END -->
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
